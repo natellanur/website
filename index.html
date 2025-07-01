@@ -27,7 +27,7 @@
 
         /* Left Panel - Fixed */
         .left-panel {
-            width: 450px;
+            width: 480px;
             background: #f5f5f5;
             padding: 80px 60px;
             display: flex;
@@ -38,6 +38,8 @@
             left: 0;
             top: 0;
             border-radius: 0 40px 40px 0;
+            box-shadow: 10px 0 40px rgba(0,0,0,0.3);
+            z-index: 10;
         }
 
         .profile-section {
@@ -54,12 +56,12 @@
         }
 
         .profile-section .subtitle {
-            font-size: 15px;
-            color: #999;
-            line-height: 1.6;
+            font-size: 16px;
+            color: #666;
+            line-height: 1.7;
             margin-bottom: 50px;
-            font-weight: 300;
-            max-width: 360px;
+            font-weight: 400;
+            max-width: 380px;
         }
 
         /* Navigation Menu */
@@ -81,6 +83,11 @@
             color: #e0e0e0;
             margin-right: 20px;
             font-weight: 300;
+        }
+
+        .nav-dash {
+            color: #e0e0e0;
+            margin: 0 16px;
         }
 
         .nav-title {
@@ -128,10 +135,10 @@
         /* Right Panel - Scrollable */
         .right-panel {
             flex: 1;
-            margin-left: 450px;
+            margin-left: 480px;
             background-color: #1a1a1a;
             overflow-y: auto;
-            padding: 80px 60px;
+            padding: 80px 40px;
             color: white;
         }
 
@@ -324,20 +331,70 @@
             background: #444;
         }
 
+        /* Responsive for medium screens */
+        @media (max-width: 1400px) {
+            .left-panel {
+                width: 420px;
+                padding: 70px 55px;
+            }
+
+            .right-panel {
+                margin-left: 420px;
+                padding: 70px 20px;
+            }
+        }
+
         /* Responsive for smaller desktops */
         @media (max-width: 1200px) {
             .left-panel {
-                width: 380px;
+                width: 400px;
                 padding: 60px 50px;
             }
 
             .right-panel {
-                margin-left: 380px;
-                padding: 60px 50px;
+                margin-left: 400px;
+                padding: 60px 15px;
             }
 
             .profile-section h1 {
                 font-size: 42px;
+            }
+        }
+
+        /* Responsive for tablets */
+        @media (max-width: 1024px) {
+            .left-panel {
+                width: 360px;
+                padding: 50px 40px;
+            }
+
+            .right-panel {
+                margin-left: 360px;
+                padding: 50px 10px;
+            }
+
+            .profile-section h1 {
+                font-size: 38px;
+            }
+
+            .profile-section .subtitle {
+                font-size: 15px;
+            }
+
+            .nav-item {
+                margin-bottom: 24px;
+            }
+
+            .nav-number {
+                font-size: 14px;
+            }
+
+            .nav-title {
+                font-size: 14px;
+            }
+
+            .project-title {
+                font-size: 32px;
             }
         }
 
@@ -358,7 +415,7 @@
                 height: 100vh;
                 position: relative;
                 border-radius: 0;
-                padding: 60px 30px;
+                padding: 80px 30px 60px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
@@ -454,7 +511,7 @@
 
         @media (max-width: 480px) {
             .left-panel {
-                padding: 40px 20px;
+                padding: 60px 20px 40px;
             }
 
             .right-panel {
@@ -498,22 +555,25 @@
             <div class="profile-section">
                 <h1>Нателла<br>Нуралиева</h1>
                 <div class="subtitle">
-                    Перевожу бизнес-задачи в работающие AI-решения. Разрабатываю на базе no-code с продуктовым мышлением и фокусом на результат.
+                    Разработчик решений на базе LLM. Перевожу бизнес-задачи в работающие AI-решения. Разрабатываю на базе no-code с продуктовым мышлением и фокусом на результат.
                 </div>
             </div>
             
             <nav class="nav-menu" id="desktopNav">
                 <div class="nav-item active" onclick="showSection('projects')">
                     <span class="nav-number">01</span>
-                    <span class="nav-title">- ПРИМЕРЫ РАБОТ</span>
+                    <span class="nav-dash">-</span>
+                    <span class="nav-title">ПРИМЕРЫ РАБОТ</span>
                 </div>
                 <div class="nav-item" onclick="showSection('pricing')">
                     <span class="nav-number">02</span>
-                    <span class="nav-title">- ФОРМАТЫ РАБОТЫ</span>
+                    <span class="nav-dash">-</span>
+                    <span class="nav-title">ФОРМАТЫ РАБОТЫ</span>
                 </div>
                 <div class="nav-item" onclick="showSection('tech')">
                     <span class="nav-number">03</span>
-                    <span class="nav-title">- ТЕХНОЛОГИИ</span>
+                    <span class="nav-dash">-</span>
+                    <span class="nav-title">ТЕХНОЛОГИИ</span>
                 </div>
             </nav>
 
@@ -560,7 +620,7 @@
                             AI-агент ежедневно мониторит заданные источники новостей и каждое утро присылает структурированную сводку главных событий в удобном формате.
                         </p>
                         <div class="project-stats">
-                            <span>эффект: Актуальная повестка отрасли без временных затрат и информационного шума</span>
+                            <span>эффект: актуальная повестка отрасли без временных затрат и информационного шума</span>
                         </div>
                     </div>
                 </div>
