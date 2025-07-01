@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нателла Нуралиева - AI & No-Code разработчик</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background-color: #1a1a1a;
+            color: #333;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        /* Container */
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        /* Left Panel - Fixed */
+        .left-panel {
+            width: 450px;
+            background: #f5f5f5;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            height: 100vh;
+            left: 0;
+            top: 0;
+            border-radius: 0 40px 40px 0;
+        }
+
+        .profile-section {
+            flex: 1;
+        }
+
+        .profile-section h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: #000;
+            letter-spacing: -2px;
+            line-height: 1.1;
+        }
+
+        .profile-section .subtitle {
+            font-size: 15px;
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            font-weight: 300;
+            max-width: 360px;
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            margin-bottom: 80px;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 28px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            position: relative;
+        }
+
+        .nav-number {
+            font-size: 15px;
+            color: #e0e0e0;
+            margin-right: 20px;
+            font-weight: 300;
+        }
+
+        .nav-title {
+            font-size: 15px;
+            color: #999;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+
+        .nav-item.active .nav-number {
+            color: #999;
+        }
+
+        .nav-item.active .nav-title {
+            color: #000;
+        }
+
+        .nav-item:hover {
+            opacity: 0.7;
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .social-links a {
+            text-decoration: none;
+            color: #000;
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s ease;
+            font-weight: 400;
+        }
+
+        .social-links a:hover {
+            opacity: 0.6;
+        }
+
+        /* Right Panel - Scrollable */
+        .right-panel {
+            flex: 1;
+            margin-left: 450px;
+            background-color: #1a1a1a;
+            overflow-y: auto;
+            padding: 80px 60px;
+            color: white;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-header {
+            font-family: 'SF Pro Display', -apple-system, sans-serif;
+            font-size: 20px;
+            margin-bottom: 80px;
+            color: #666;
+            font-weight: 200;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Project Cards */
+        .project-card {
+            margin-bottom: 70px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #2a2a2a;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:last-child {
+            border-bottom: none;
+        }
+
+        .project-card:hover .project-title {
+            opacity: 0.7;
+        }
+
+        .project-type {
+            font-size: 11px;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .project-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: white;
+            letter-spacing: -1px;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+
+        .project-card.expanded .project-content {
+            max-height: 300px;
+            transition: max-height 0.4s ease-in;
+        }
+
+        .project-description {
+            font-size: 15px;
+            color: #999;
+            line-height: 1.8;
+            max-width: 600px;
+            font-weight: 300;
+            margin-top: 20px;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 20px;
+            font-size: 14px;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Pricing Cards */
+        .pricing-card {
+            margin-bottom: 70px;
+            padding-bottom: 50px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .pricing-card:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-title {
+            font-size: 30px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .pricing-price {
+            font-size: 17px;
+            font-weight: 300;
+            color: #666;
+            margin-bottom: 24px;
+        }
+
+        .pricing-description {
+            font-size: 15px;
+            color: #999;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* Tech Grid */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .tech-item {
+            padding: 18px;
+            text-align: left;
+            font-size: 15px;
+            color: #999;
+            font-weight: 300;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .tech-note {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 40px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+        /* Buttons */
+        .text-button {
+            display: inline-block;
+            color: #999;
+            text-decoration: none;
+            font-size: 15px;
+            border-bottom: 1px solid #666;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .text-button:hover {
+            color: white;
+            border-color: white;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            margin-top: 80px;
+            padding-top: 50px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-section h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            color: white;
+            font-weight: 400;
+        }
+
+        /* Custom Scrollbar */
+        .right-panel::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .right-panel::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+
+        .right-panel::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        .right-panel::-webkit-scrollbar-thumb:hover {
+            background: #444;
+        }
+
+        /* Responsive for smaller desktops */
+        @media (max-width: 1200px) {
+            .left-panel {
+                width: 380px;
+                padding: 60px 50px;
+            }
+
+            .right-panel {
+                margin-left: 380px;
+                padding: 60px 50px;
+            }
+
+            .profile-section h1 {
+                font-size: 42px;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
+
+            .container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .left-panel {
+                width: 100%;
+                height: 100vh;
+                position: relative;
+                border-radius: 0;
+                padding: 60px 30px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .profile-section {
+                flex: 0;
+                margin-bottom: 60px;
+            }
+
+            .profile-section h1 {
+                font-size: 42px;
+                margin-bottom: 24px;
+            }
+
+            .nav-menu {
+                margin-bottom: 60px;
+            }
+
+            .social-links {
+                position: relative;
+                margin-top: auto;
+            }
+
+            .right-panel {
+                margin-left: 0;
+                padding: 60px 30px;
+                min-height: 100vh;
+                background: #1a1a1a;
+            }
+
+            /* Mobile navigation bar */
+            .mobile-nav-bar {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: #f5f5f5;
+                padding: 15px 20px;
+                z-index: 1000;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .mobile-nav-bar.active {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .mobile-nav-bar .nav-item {
+                margin: 0;
+                font-size: 12px;
+            }
+
+            .mobile-nav-bar .nav-number {
+                font-size: 12px;
+                margin-right: 8px;
+            }
+
+            .mobile-nav-bar .nav-title {
+                font-size: 12px;
+                letter-spacing: 0.5px;
+            }
+
+            .right-panel.with-nav {
+                padding-top: 100px;
+            }
+
+            /* Adjust sections for mobile */
+            .section-header {
+                font-size: 18px;
+                margin-bottom: 50px;
+            }
+
+            .project-title {
+                font-size: 28px;
+            }
+
+            .project-card {
+                margin-bottom: 50px;
+                padding-bottom: 40px;
+            }
+
+            .pricing-title {
+                font-size: 24px;
+            }
+
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .left-panel {
+                padding: 40px 20px;
+            }
+
+            .right-panel {
+                padding: 60px 20px;
+            }
+
+            .profile-section h1 {
+                font-size: 36px;
+            }
+
+            .profile-section .subtitle {
+                font-size: 14px;
+            }
+
+            .project-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Mobile Navigation Bar -->
+        <div class="mobile-nav-bar" id="mobileNavBar">
+            <div class="nav-item active" onclick="showSection('projects')">
+                <span class="nav-number">01</span>
+                <span class="nav-title">РАБОТЫ</span>
+            </div>
+            <div class="nav-item" onclick="showSection('pricing')">
+                <span class="nav-number">02</span>
+                <span class="nav-title">ФОРМАТЫ</span>
+            </div>
+            <div class="nav-item" onclick="showSection('tech')">
+                <span class="nav-number">03</span>
+                <span class="nav-title">СТЕК</span>
+            </div>
+        </div>
+
+        <!-- Left Panel - Fixed -->
+        <div class="left-panel" id="leftPanel">
+            <div class="profile-section">
+                <h1>Нателла<br>Нуралиева</h1>
+                <div class="subtitle">
+                    Перевожу бизнес-задачи в работающие AI-решения. Разрабатываю на базе no-code с продуктовым мышлением и фокусом на результат.
+                </div>
+            </div>
+            
+            <nav class="nav-menu" id="desktopNav">
+                <div class="nav-item active" onclick="showSection('projects')">
+                    <span class="nav-number">01</span>
+                    <span class="nav-title">- ПРИМЕРЫ РАБОТ</span>
+                </div>
+                <div class="nav-item" onclick="showSection('pricing')">
+                    <span class="nav-number">02</span>
+                    <span class="nav-title">- ФОРМАТЫ РАБОТЫ</span>
+                </div>
+                <div class="nav-item" onclick="showSection('tech')">
+                    <span class="nav-number">03</span>
+                    <span class="nav-title">- ТЕХНОЛОГИИ</span>
+                </div>
+            </nav>
+
+            <div class="social-links">
+                <a href="https://t.me/natellanur" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.828.941z"/>
+                    </svg>
+                    Telegram
+                </a>
+                <a href="https://cal.com/natella-nuralieva/30min" target="_blank">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                    </svg>
+                    Cal.com
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Panel - Scrollable -->
+        <div class="right-panel" id="rightPanel">
+            <!-- Projects Section -->
+            <div id="projects" class="section active">
+                <div class="section-header">Cases</div>
+                
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-type">TELEGRAM.BOT</div>
+                    <h3 class="project-title">Фоторедактор для паспорта</h3>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Telegram-бот для фотосалона. Сотрудник отправляет фото клиента, система автоматически обрабатывает его под требования паспортного фото: обрезает, корректирует освещение и фон.
+                        </p>
+                        <div class="project-stats">
+                            <span>эффект: экономия времени 90%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-type">AI.AGENT</div>
+                    <h3 class="project-title">Саммари новостей</h3>
+                    <div class="project-content">
+                        <p class="project-description">
+                            AI-агент ежедневно мониторит заданные источники новостей и каждое утро присылает структурированную сводку главных событий в удобном формате.
+                        </p>
+                        <div class="project-stats">
+                            <span>эффект: Актуальная повестка отрасли без временных затрат и информационного шума</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-type">MAKE.AUTOMATION</div>
+                    <h3 class="project-title">Обработка документации</h3>
+                    <div class="project-content">
+                        <p class="project-description">
+                            Автоматическая проверка договоров по чек-листу, извлечение ключевых данных и выгрузка информации в структурированном виде для дальнейшей работы.
+                        </p>
+                        <div class="project-stats">
+                            <span>эффект: минимизация ошибок, экономия времени 98%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pricing Section -->
+            <div id="pricing" class="section">
+                <div class="section-header">WorkFormats</div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Консультация</h3>
+                    <div class="pricing-price">15 000 ₽</div>
+                    <p class="pricing-description">
+                        Погружение в ваши задачи, анализ болевых точек, генерация вариантов решений разной сложности. Результат: понимание вами как решать задачи какими технологиями, список подходящих сервисов.
+                    </p>
+                </div>
+
+                <div class="pricing-card">
+                    <h3 class="pricing-title">Разработка</h3>
+                    <div class="pricing-price">Стоимость обговаривается индивидуально</div>
+                    <p class="pricing-description">
+                        Создание MVP, AI-прототипов и автоматизаций. Полная реализация решения от идеи до рабочего продукта с интеграциями и настройкой.
+                    </p>
+                </div>
+
+                <div style="margin-top: 50px;">
+                    <a href="https://t.me/natellanur" target="_blank" class="text-button">
+                        Обсудить проект →
+                    </a>
+                </div>
+            </div>
+
+            <!-- Tech Section -->
+            <div id="tech" class="section">
+                <div class="section-header">Stack</div>
+                <p class="tech-note">*Подбираю стек под задачу</p>
+                
+                <div class="tech-grid">
+                    <div class="tech-item">Make.com</div>
+                    <div class="tech-item">Bubble</div>
+                    <div class="tech-item">NoCodeDB</div>
+                    <div class="tech-item">Airtable</div>
+                    <div class="tech-item">Webflow</div>
+                    <div class="tech-item">n8n</div>
+                    <div class="tech-item">OpenAI / Gemini API</div>
+                    <div class="tech-item">Telegram Bot API</div>
+                </div>
+
+                <div class="cta-section">
+                    <h3>Есть задача, боль или идея?</h3>
+                    <a href="https://t.me/natellanur" target="_blank" class="text-button">
+                        Пишите в Telegram →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav items
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked nav items (both desktop and mobile)
+            event.currentTarget.classList.add('active');
+            
+            // Find matching nav item in other menu
+            const clickedNumber = event.currentTarget.querySelector('.nav-number').textContent;
+            document.querySelectorAll('.nav-item').forEach(item => {
+                if (item.querySelector('.nav-number').textContent === clickedNumber) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Scroll behavior for mobile
+            if (window.innerWidth <= 768) {
+                // Scroll to content section
+                setTimeout(() => {
+                    document.getElementById('rightPanel').scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Show mobile nav bar after scrolling
+                    setTimeout(() => {
+                        document.getElementById('mobileNavBar').classList.add('active');
+                        document.getElementById('rightPanel').classList.add('with-nav');
+                    }, 300);
+                }, 100);
+            } else {
+                // Desktop: scroll to top of right panel
+                document.querySelector('.right-panel').scrollTop = 0;
+            }
+        }
+
+        function toggleProject(card) {
+            // Close all other cards
+            document.querySelectorAll('.project-card').forEach(c => {
+                if (c !== card) {
+                    c.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current card
+            card.classList.toggle('expanded');
+        }
+
+        // Handle scroll to hide/show mobile nav
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            if (window.innerWidth <= 768) {
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const leftPanelHeight = document.getElementById('leftPanel').offsetHeight;
+                
+                // If scrolled past left panel, keep nav visible
+                if (scrollTop > leftPanelHeight - 100) {
+                    document.getElementById('mobileNavBar').classList.add('active');
+                    document.getElementById('rightPanel').classList.add('with-nav');
+                } else {
+                    document.getElementById('mobileNavBar').classList.remove('active');
+                    document.getElementById('rightPanel').classList.remove('with-nav');
+                }
+                
+                lastScrollTop = scrollTop;
+            }
+        });
+
+        // Reset on resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                document.getElementById('mobileNavBar').classList.remove('active');
+                document.getElementById('rightPanel').classList.remove('with-nav');
+            }
+        });
+    </script>
+</body>
+</html>
