@@ -23,11 +23,12 @@
         .container {
             display: flex;
             height: 100vh;
+            position: relative;
         }
 
         /* Left Panel - Fixed */
         .left-panel {
-            width: 480px;
+            width: 100%;
             background: #f5f5f5;
             padding: 80px 60px;
             display: flex;
@@ -37,13 +38,20 @@
             height: 100vh;
             left: 0;
             top: 0;
-            border-radius: 0 40px 40px 0;
+            border-radius: 0;
             box-shadow: 10px 0 40px rgba(0,0,0,0.3);
             z-index: 10;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .left-panel.collapsed {
+            width: 480px;
+            border-radius: 0 40px 40px 0;
         }
 
         .profile-section {
             flex: 1;
+            transition: opacity 0.3s ease;
         }
 
         .profile-section h1 {
@@ -135,15 +143,23 @@
         /* Right Panel - Scrollable */
         .right-panel {
             flex: 1;
-            margin-left: 480px;
+            margin-left: 100%;
             background-color: #1a1a1a;
             overflow-y: auto;
             padding: 80px 40px;
             color: white;
+            transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+        }
+
+        .right-panel.visible {
+            margin-left: 480px;
+            opacity: 1;
         }
 
         .section {
             display: none;
+            padding-bottom: 80px;
         }
 
         .section.active {
@@ -158,6 +174,49 @@
             font-weight: 200;
             letter-spacing: 2px;
             text-transform: uppercase;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 700px;
+        }
+
+        .about-content h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-top: 36px;
+            margin-bottom: 16px;
+        }
+
+        .about-content p {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .about-content ul {
+            list-style: none;
+            margin-bottom: 24px;
+        }
+
+        .about-content li {
+            font-size: 16px;
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+            font-weight: 300;
+        }
+
+        .about-content li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #666;
         }
 
         /* Project Cards */
@@ -186,6 +245,12 @@
             font-weight: 400;
         }
 
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
         .project-title {
             font-size: 36px;
             font-weight: 700;
@@ -193,6 +258,17 @@
             color: white;
             letter-spacing: -1px;
             transition: opacity 0.3s ease;
+        }
+
+        .expand-icon {
+            font-size: 14px;
+            color: #666;
+            transition: transform 0.3s ease;
+            line-height: 1;
+        }
+
+        .project-card.expanded .expand-icon {
+            transform: rotate(180deg);
         }
 
         .project-content {
@@ -255,6 +331,72 @@
             color: #999;
             line-height: 1.8;
             font-weight: 300;
+            margin-bottom: 24px;
+        }
+
+        .pricing-process {
+            margin-top: 24px;
+            cursor: pointer;
+        }
+
+        .pricing-process h4 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #ccc;
+            margin-bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-process h4:hover {
+            color: white;
+        }
+
+        .pricing-process .process-icon {
+            font-size: 12px;
+            color: #666;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-process.expanded .process-icon {
+            transform: rotate(180deg);
+        }
+
+        .pricing-process ul {
+            list-style: none;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+            margin-top: 16px;
+        }
+
+        .pricing-process.expanded ul {
+            max-height: 500px;
+            transition: max-height 0.4s ease-in;
+        }
+
+        .pricing-process li {
+            font-size: 15px;
+            color: #999;
+            line-height: 1.6;
+            margin-bottom: 12px;
+            font-weight: 300;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .pricing-process li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+
+        .pricing-process strong {
+            color: #ccc;
+            font-weight: 500;
         }
 
         /* Tech Grid */
@@ -333,27 +475,29 @@
 
         /* Responsive for medium screens */
         @media (max-width: 1400px) {
-            .left-panel {
+            .left-panel.collapsed {
                 width: 420px;
                 padding: 70px 55px;
             }
 
-            .right-panel {
+            .right-panel.visible {
                 margin-left: 420px;
                 padding: 70px 20px;
+                opacity: 1;
             }
         }
 
         /* Responsive for smaller desktops */
         @media (max-width: 1200px) {
-            .left-panel {
+            .left-panel.collapsed {
                 width: 400px;
                 padding: 60px 50px;
             }
 
-            .right-panel {
+            .right-panel.visible {
                 margin-left: 400px;
                 padding: 60px 15px;
+                opacity: 1;
             }
 
             .profile-section h1 {
@@ -363,14 +507,15 @@
 
         /* Responsive for tablets */
         @media (max-width: 1024px) {
-            .left-panel {
+            .left-panel.collapsed {
                 width: 360px;
                 padding: 50px 40px;
             }
 
-            .right-panel {
+            .right-panel.visible {
                 margin-left: 360px;
                 padding: 50px 10px;
+                opacity: 1;
             }
 
             .profile-section h1 {
@@ -419,6 +564,12 @@
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
+                transition: none;
+            }
+
+            .left-panel.collapsed {
+                width: 100%;
+                border-radius: 0;
             }
 
             .profile-section {
@@ -443,8 +594,18 @@
             .right-panel {
                 margin-left: 0;
                 padding: 60px 30px;
-                min-height: 100vh;
                 background: #1a1a1a;
+                transition: none;
+            }
+
+            .right-panel.visible {
+                margin-left: 0;
+            }
+
+            .section {
+                display: block;
+                min-height: auto;
+                padding-bottom: 60px;
             }
 
             /* Mobile navigation bar */
@@ -536,16 +697,20 @@
     <div class="container">
         <!-- Mobile Navigation Bar -->
         <div class="mobile-nav-bar" id="mobileNavBar">
-            <div class="nav-item active" onclick="showSection('projects')">
+            <div class="nav-item active" onclick="showSection('about')">
                 <span class="nav-number">01</span>
+                <span class="nav-title">ОБО МНЕ</span>
+            </div>
+            <div class="nav-item" onclick="showSection('projects')">
+                <span class="nav-number">02</span>
                 <span class="nav-title">РАБОТЫ</span>
             </div>
             <div class="nav-item" onclick="showSection('pricing')">
-                <span class="nav-number">02</span>
+                <span class="nav-number">03</span>
                 <span class="nav-title">ФОРМАТЫ</span>
             </div>
             <div class="nav-item" onclick="showSection('tech')">
-                <span class="nav-number">03</span>
+                <span class="nav-number">04</span>
                 <span class="nav-title">СТЕК</span>
             </div>
         </div>
@@ -555,23 +720,28 @@
             <div class="profile-section">
                 <h1>Нателла<br>Нуралиева</h1>
                 <div class="subtitle">
-                    Разработчик решений на базе LLM. Перевожу бизнес-задачи в работающие AI-решения. Разрабатываю на базе no-code с продуктовым мышлением и фокусом на результат.
+                    Разработчик решений на базе LLM. Перевожу бизнес-задачи в работающие AI-решения. Разрабатываю с продуктовым мышлением и фокусом на результат.
                 </div>
             </div>
             
             <nav class="nav-menu" id="desktopNav">
-                <div class="nav-item active" onclick="showSection('projects')">
+                <div class="nav-item active" onclick="showSection('about')">
                     <span class="nav-number">01</span>
+                    <span class="nav-dash">-</span>
+                    <span class="nav-title">ОБО МНЕ</span>
+                </div>
+                <div class="nav-item" onclick="showSection('projects')">
+                    <span class="nav-number">02</span>
                     <span class="nav-dash">-</span>
                     <span class="nav-title">ПРИМЕРЫ РАБОТ</span>
                 </div>
                 <div class="nav-item" onclick="showSection('pricing')">
-                    <span class="nav-number">02</span>
+                    <span class="nav-number">03</span>
                     <span class="nav-dash">-</span>
                     <span class="nav-title">ФОРМАТЫ РАБОТЫ</span>
                 </div>
                 <div class="nav-item" onclick="showSection('tech')">
-                    <span class="nav-number">03</span>
+                    <span class="nav-number">04</span>
                     <span class="nav-dash">-</span>
                     <span class="nav-title">ТЕХНОЛОГИИ</span>
                 </div>
@@ -595,13 +765,44 @@
 
         <!-- Right Panel - Scrollable -->
         <div class="right-panel" id="rightPanel">
+            <!-- About Section -->
+            <div id="about" class="section active">
+                <div class="section-header">About</div>
+                <div class="about-content">
+                    <p>Меня зовут Нателла. Я создаю ИИ-решения и автоматизирую бизнес-процессы с помощью no-code платформ, параллельно исследуя доверие к искусственному интеллекту в академической сфере.</p>
+                    
+                    <h3>Разработка и автоматизация:</h3>
+                    <ul>
+                        <li>Получала грант от OpenAI, проходила акселератор Founder Institute в Кремниевой долине, запускала продукты на Product Hunt</li>
+                        <li>Среди текущих pet проектов: платформа для создания чат-ботов botsy.pro и лента технологических новостей Nerdie Daylik</li>
+                    </ul>
+                    
+                    <h3>Корпоративный опыт:</h3>
+                    <ul>
+                        <li>Корпоративный опыт в General Electric, Почте России и РТК Софт</li>
+                        <li>Понимаю, как технологии работают в реальных командах и особенности внедрения в больших организациях</li>
+                    </ul>
+                    
+                    <h3>Исследования:</h3>
+                    <ul>
+                        <li>Выигрывала грант Йельского университета, обучалась в Sciences Po (Paris), выпускница МГУ им. М.В. Ломоносова</li>
+                        <li>Пишу диссертацию по социологии на тему доверия к ИИ</li>
+                    </ul>
+                    
+                    <p>Консультирую по автоматизации процессов и внедрению ИИ-инструментов в бизнес.</p>
+                </div>
+            </div>
+
             <!-- Projects Section -->
-            <div id="projects" class="section active">
+            <div id="projects" class="section">
                 <div class="section-header">Cases</div>
                 
                 <div class="project-card" onclick="toggleProject(this)">
                     <div class="project-type">TELEGRAM.BOT</div>
-                    <h3 class="project-title">Фоторедактор для паспорта</h3>
+                    <div class="project-header">
+                        <h3 class="project-title">Фоторедактор для паспорта</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
                     <div class="project-content">
                         <p class="project-description">
                             Telegram-бот для фотосалона. Сотрудник отправляет фото клиента, система автоматически обрабатывает его под требования паспортного фото: обрезает, корректирует освещение и фон.
@@ -614,7 +815,10 @@
 
                 <div class="project-card" onclick="toggleProject(this)">
                     <div class="project-type">AI.AGENT</div>
-                    <h3 class="project-title">Саммари новостей</h3>
+                    <div class="project-header">
+                        <h3 class="project-title">Саммари новостей</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
                     <div class="project-content">
                         <p class="project-description">
                             AI-агент ежедневно мониторит заданные источники новостей и каждое утро присылает структурированную сводку главных событий в удобном формате.
@@ -627,7 +831,10 @@
 
                 <div class="project-card" onclick="toggleProject(this)">
                     <div class="project-type">MAKE.AUTOMATION</div>
-                    <h3 class="project-title">Обработка документации</h3>
+                    <div class="project-header">
+                        <h3 class="project-title">Обработка документации</h3>
+                        <span class="expand-icon">▼</span>
+                    </div>
                     <div class="project-content">
                         <p class="project-description">
                             Автоматическая проверка договоров по чек-листу, извлечение ключевых данных и выгрузка информации в структурированном виде для дальнейшей работы.
@@ -647,16 +854,33 @@
                     <h3 class="pricing-title">Консультация</h3>
                     <div class="pricing-price">15 000 ₽</div>
                     <p class="pricing-description">
-                        Погружение в ваши задачи, анализ болевых точек, генерация вариантов решений разной сложности. Результат: понимание вами как решать задачи какими технологиями, список подходящих сервисов.
+                        Помогаю понять, где и как ИИ может упростить именно вашу работу. Работаю как с конкретными запросами, так и с общим аудитом ваших процессов для их оптимизации.
                     </p>
+                    <div class="pricing-process" onclick="toggleProcess(this)">
+                        <h4>Процесс на примере аудита ваших задач: <span class="process-icon">▼</span></h4>
+                        <ul>
+                            <li><strong>Подготовка:</strong> Собираем задачи, которые вы решали последние недели, планируете на ближайшее время, или те, что систематически отнимают много времени</li>
+                            <li><strong>Встреча:</strong> Встреча длительностью час, где разбираем каждую задачу и определяем возможности применения ИИ — от ChatGPT до специализированных сервисов</li>
+                            <li><strong>Результат:</strong> Список конкретных инструментов и подходов, протестированных на ваших задачах</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div class="pricing-card">
                     <h3 class="pricing-title">Разработка</h3>
                     <div class="pricing-price">Стоимость обговаривается индивидуально</div>
                     <p class="pricing-description">
-                        Создание MVP, AI-прототипов и автоматизаций. Полная реализация решения от идеи до рабочего продукта с интеграциями и настройкой.
+                        Создаю веб-приложения, автоматизации с ИИ, телеграм-ботов, MVP и другие решения. Полная реализация от идеи до рабочего продукта. Длительность: от 2 недель до 3 месяцев в зависимости от сложности.
                     </p>
+                    <div class="pricing-process" onclick="toggleProcess(this)">
+                        <h4>Процесс на примере автоматизации процессов бизнеса: <span class="process-icon">▼</span></h4>
+                        <ul>
+                            <li>Анализ текущих процессов и определение точек применения ИИ</li>
+                            <li>Выбор оптимальных технологий и языковых моделей под задачу</li>
+                            <li>Разработка решения методом low-code с интеграцией существующих систем</li>
+                            <li>При необходимости совмещаю роли разработчика и продакт-менеджера</li>
+                        </ul>
+                    </div>
                 </div>
 
                 <div style="margin-top: 50px;">
@@ -693,19 +917,31 @@
     </div>
 
     <script>
+        let isInitialState = true;
+
         function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-            });
-            
+            // First time clicking - collapse left panel
+            if (isInitialState) {
+                document.getElementById('leftPanel').classList.add('collapsed');
+                document.getElementById('rightPanel').classList.add('visible');
+                isInitialState = false;
+            }
+
+            // Desktop behavior - show only selected section
+            if (window.innerWidth > 768) {
+                // Hide all sections
+                document.querySelectorAll('.section').forEach(section => {
+                    section.classList.remove('active');
+                });
+                
+                // Show selected section
+                document.getElementById(sectionId).classList.add('active');
+            }
+
             // Remove active class from all nav items
             document.querySelectorAll('.nav-item').forEach(item => {
                 item.classList.remove('active');
             });
-            
-            // Show selected section
-            document.getElementById(sectionId).classList.add('active');
             
             // Add active class to clicked nav items (both desktop and mobile)
             event.currentTarget.classList.add('active');
@@ -718,11 +954,11 @@
                 }
             });
             
-            // Scroll behavior for mobile
+            // Scroll behavior
             if (window.innerWidth <= 768) {
-                // Scroll to content section
+                // Mobile: scroll to section (all sections visible)
                 setTimeout(() => {
-                    document.getElementById('rightPanel').scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
                     
                     // Show mobile nav bar after scrolling
                     setTimeout(() => {
@@ -731,7 +967,7 @@
                     }, 300);
                 }, 100);
             } else {
-                // Desktop: scroll to top of right panel
+                // Desktop: scroll to top
                 document.querySelector('.right-panel').scrollTop = 0;
             }
         }
@@ -747,6 +983,14 @@
             // Toggle current card
             card.classList.toggle('expanded');
         }
+
+        function toggleProcess(process) {
+            // Toggle current process
+            process.classList.toggle('expanded');
+        }
+
+        // Remove scroll handler for desktop
+        // Mobile scroll handler remains the same
 
         // Handle scroll to hide/show mobile nav
         let lastScrollTop = 0;
