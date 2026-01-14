@@ -292,13 +292,13 @@
         }
 
         .project-card.expanded .project-content {
-            max-height: 300px;
+            max-height: 500px;
             transition: max-height 0.4s ease-in;
         }
 
         .project-description {
             font-size: 15px;
-            color: #999;
+            color: #666;
             line-height: 1.5;
             max-width: 600px;
             font-weight: 300;
@@ -309,7 +309,7 @@
             display: flex;
             gap: 20px;
             font-size: 14px;
-            color: #666;
+            color: #999;
             margin-top: 20px;
             font-style: italic;
         }
@@ -351,6 +351,15 @@
         .pricing-card:hover .expand-icon {
             color: #333;
             transform: scaleX(1.2) translateY(2px);
+        }
+
+        .pricing-card.expanded .expand-icon {
+            transform: scaleX(1.4) rotate(180deg);
+        }
+
+        .pricing-card.expanded .project-content {
+            max-height: 800px;
+            transition: max-height 0.4s ease-in;
         }
 
         .pricing-header {

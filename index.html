@@ -302,7 +302,7 @@
         }
 
         .project-card.expanded .project-content {
-            max-height: 300px;
+            max-height: 500px;
             transition: max-height 0.4s ease-in;
         }
 
@@ -360,6 +360,20 @@
 
         .pricing-card:hover .pricing-title {
             color: #000;
+        }
+
+        .pricing-card:hover .expand-icon {
+            color: #333;
+            transform: scaleX(1.2) translateY(2px);
+        }
+
+        .pricing-card.expanded .expand-icon {
+            transform: scaleX(1.4) rotate(180deg);
+        }
+
+        .pricing-card.expanded .project-content {
+            max-height: 800px;
+            transition: max-height 0.4s ease-in;
         }
 
         .pricing-price {
