@@ -15,7 +15,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-            background-color: #1a1a1a;
+            background-color: #f5f5f5;
             color: #333;
             overflow: hidden;
             height: 100vh;
@@ -31,7 +31,7 @@
         /* Left Panel - Fixed */
         .left-panel {
             width: 100%;
-            background: #f5f5f5;
+            background: #1a1a1a;
             padding: 80px 60px;
             display: flex;
             flex-direction: column;
@@ -60,14 +60,14 @@
             font-size: 48px;
             font-weight: 700;
             margin-bottom: 32px;
-            color: #000;
+            color: #fff;
             letter-spacing: -2px;
             line-height: 1.1;
         }
 
         .profile-section .subtitle {
             font-size: 16px;
-            color: #666;
+            color: #999;
             line-height: 1.7;
             margin-bottom: 50px;
             font-weight: 400;
@@ -90,13 +90,13 @@
 
         .nav-number {
             font-size: 15px;
-            color: #e0e0e0;
+            color: #666;
             margin-right: 20px;
             font-weight: 300;
         }
 
         .nav-dash {
-            color: #e0e0e0;
+            color: #666;
             margin: 0 16px;
         }
 
@@ -113,7 +113,7 @@
         }
 
         .nav-item.active .nav-title {
-            color: #000;
+            color: #fff;
         }
 
         .nav-item:hover {
@@ -129,7 +129,7 @@
 
         .social-links a {
             text-decoration: none;
-            color: #000;
+            color: #999;
             font-size: 13px;
             display: flex;
             align-items: center;
@@ -146,10 +146,10 @@
         .right-panel {
             flex: 1;
             margin-left: 100%;
-            background-color: #1a1a1a;
+            background-color: #fff;
             overflow-y: auto;
             padding: 80px 60px;
-            color: white;
+            color: #333;
             transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
         }
@@ -172,7 +172,7 @@
             font-family: 'SF Pro Display', -apple-system, sans-serif;
             font-size: 20px;
             margin-bottom: 80px;
-            color: #666;
+            color: #999;
             font-weight: 200;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -186,16 +186,16 @@
         .about-content h3 {
             font-size: 22px;
             font-weight: 700;
-            color: white;
+            color: #000;
             margin-top: 40px;
             margin-bottom: 16px;
             padding-left: 16px;
-            border-left: 3px solid #6B9BD1;
+            border-left: 3px solid #D4AF37;
         }
 
         .about-content p {
             font-size: 15px;
-            color: #999;
+            color: #333;
             line-height: 1.5;
             margin-bottom: 18px;
             font-weight: 300;
@@ -208,7 +208,7 @@
 
         .about-content li {
             font-size: 15px;
-            color: #999;
+            color: #666;
             line-height: 1.5;
             margin-bottom: 8px;
             padding-left: 20px;
@@ -223,11 +223,21 @@
             color: #666;
         }
 
+        .about-content strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .about-content em {
+            font-style: italic;
+            color: #333;
+        }
+
         /* Project Cards */
         .project-card {
             margin-bottom: 50px;
             padding-bottom: 40px;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid #e0e0e0;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -237,16 +247,16 @@
         }
 
         .project-card:hover {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(0, 0, 0, 0.02);
             border-radius: 8px;
         }
 
         .project-card:hover .project-title {
-            color: white;
+            color: #000;
         }
 
         .project-card:hover .expand-icon {
-            color: #999;
+            color: #333;
             transform: scaleX(1.2) translateY(2px);
         }
 
@@ -269,7 +279,7 @@
             font-size: 30px;
             font-weight: 600;
             margin-bottom: 0;
-            color: #e8e8e8;
+            color: #333;
             letter-spacing: -1px;
             transition: color 0.3s ease;
         }
@@ -319,110 +329,75 @@
 
         /* Pricing Cards */
         .pricing-card {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             padding-bottom: 40px;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .pricing-card:last-child {
             border-bottom: none;
-            padding-bottom: 40px;
+        }
+
+        .pricing-card:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+        }
+
+        .pricing-card:hover .expand-icon {
+            color: #333;
+            transform: scaleX(1.2) translateY(2px);
+        }
+
+        .pricing-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
         }
 
         .pricing-title {
             font-size: 30px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
             letter-spacing: -0.5px;
         }
 
         .pricing-price {
             font-size: 20px;
-            font-weight: 400;
-            color: #6B9BD1;
-            margin-bottom: 24px;
+            font-weight: 600;
+            color: #D4AF37;
+            margin-bottom: 8px;
+        }
+
+        .pricing-timeline {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .pricing-brief {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.5;
+            margin: 0;
         }
 
         .pricing-description {
             font-size: 15px;
-            color: #999;
+            color: #666;
             line-height: 1.5;
             font-weight: 300;
             margin-bottom: 20px;
         }
 
-        .pricing-process {
-            margin-top: 24px;
-            cursor: pointer;
-        }
-
-        .pricing-process h4 {
-            font-size: 16px;
-            font-weight: 500;
-            color: #ccc;
-            margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-process h4:hover {
-            color: white;
-        }
-
-        .pricing-process .process-icon {
-            font-size: 16px;
-            color: #666;
-            transition: all 0.3s ease;
-            display: inline-block;
-            transform: scaleX(1.2);
-            margin-left: 8px;
-        }
-
-        .pricing-process:hover .process-icon {
-            color: #999;
-            transform: scaleX(1.2) translateY(2px);
-        }
-
-        .pricing-process.expanded .process-icon {
-            transform: scaleX(1.4) rotate(180deg);
-        }
-
-        .pricing-process ul {
-            list-style: none;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            margin-top: 16px;
-        }
-
-        .pricing-process.expanded ul {
-            max-height: 500px;
-            transition: max-height 0.4s ease-in;
-        }
-
-        .pricing-process li {
+        .pricing-fit {
             font-size: 15px;
             color: #999;
-            line-height: 1.5;
-            margin-bottom: 10px;
-            font-weight: 300;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .pricing-process li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #666;
-        }
-
-        .pricing-process strong {
-            color: #ccc;
-            font-weight: 500;
+            line-height: 1.6;
+            margin-top: 20px;
         }
 
         /* Tech Grid */
@@ -499,16 +474,16 @@
         }
 
         .right-panel::-webkit-scrollbar-track {
-            background: #1a1a1a;
+            background: #f5f5f5;
         }
 
         .right-panel::-webkit-scrollbar-thumb {
-            background: #333;
+            background: #ddd;
             border-radius: 4px;
         }
 
         .right-panel::-webkit-scrollbar-thumb:hover {
-            background: #444;
+            background: #ccc;
         }
 
         /* Responsive for medium screens */
@@ -636,7 +611,7 @@
             .right-panel {
                 margin-left: 0;
                 padding: 60px 40px;
-                background: #1a1a1a;
+                background: #fff;
                 transition: none;
             }
 
@@ -657,7 +632,7 @@
                 top: 0;
                 left: 0;
                 right: 0;
-                background: #f5f5f5;
+                background: #1a1a1a;
                 padding: 15px 20px;
                 z-index: 1000;
                 box-shadow: 0 2px 10px rgba(0,0,0,0.1);
@@ -827,27 +802,29 @@
             <div id="about" class="section active">
                 <div class="section-header">About</div>
                 <div class="about-content">
-                    <p>Меня зовут Нателла. Я создаю ИИ-решения и автоматизирую бизнес-процессы с помощью no-code платформ, параллельно исследуя доверие к искусственному интеллекту в академической сфере.</p>
+                    <p><strong>Проектирую и разрабатываю AI-решения на базе LLM для автоматизации бизнес-процессов и помогаю командам внедрять их так, чтобы это создавало реальную бизнес-ценность.</strong></p>
 
-                    <h3>Разработка и автоматизация:</h3>
+                    <h3>Строю и выпускаю</h3>
                     <ul>
-                        <li>Получала грант от OpenAI, проходила акселератор Founder Institute в Кремниевой долине, запускала продукты на Product Hunt</li>
-                        <li>Среди текущих pet проектов: платформа для создания чат-ботов <a href="http://botsy.pro" target="_blank" style="color: #ccc; text-decoration: underline;">botsy.pro</a> и лента технологических новостей <a href="https://t.me/nerdiedaylik" target="_blank" style="color: #ccc; text-decoration: underline;">Nerdie Daylik</a></li>
+                        <li><strong>Грант от OpenAI</strong>, запуски на Product Hunt</li>
+                        <li>Выпускница Founder Institute (Silicon Valley)</li>
+                        <li>Со-основатель <em>Pythia</em>, AI-платформы для маркетинговых исследований</li>
+                        <li>Сейчас строю <em>dailyn.cc</em>, персонализированный новостной продукт</li>
                     </ul>
 
-                    <h3>Корпоративный опыт:</h3>
+                    <h3>Корпоративный опыт</h3>
                     <ul>
-                        <li>Корпоративный опыт в General Electric, Почте России и РТК Софт</li>
-                        <li>Понимаю, как технологии работают в реальных командах и особенности внедрения в больших организациях</li>
+                        <li>Работала в General Electric, Почте России, РТК Софт</li>
+                        <li>Понимаю, как технологии работают в реальных командах и особенности внедрения в крупных организациях</li>
                     </ul>
 
-                    <h3>Исследования:</h3>
+                    <h3>Исследования</h3>
                     <ul>
-                        <li>Выигрывала грант Йельского университета, обучалась в Sciences Po (Paris), выпускница МГУ им. М.В. Ломоносова</li>
-                        <li>Пишу диссертацию по социологии на тему доверия к ИИ</li>
+                        <li>Получала грант Йельского университета, училась в Sciences Po (Paris), выпускница МГУ им. М.В. Ломоносова</li>
+                        <li>Пишу диссертацию по социологии на тему доверия к AI</li>
                     </ul>
 
-                    <p>В работе сочетаю академическую глубину с четкой нацеленностью на практический результат.</p>
+                    <p>В работе сочетаю академическую глубину с четким фокусом на практический результат.</p>
                 </div>
             </div>
 
@@ -973,36 +950,75 @@
             <div id="pricing" class="section">
                 <div class="section-header">WorkFormats</div>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Консультация</h3>
-                    <div class="pricing-price">25 000 ₽</div>
-                    <p class="pricing-description">
-                        Помогаю понять, где и как ИИ может упростить именно вашу работу. Работаю как с конкретными запросами, так и с общим аудитом ваших процессов для их оптимизации.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Процесс на примере аудита ваших задач: <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li><strong>Подготовка:</strong> Собираем задачи, которые вы решали последние недели, планируете на ближайшее время, или те, что систематически отнимают много времени. Если требуется, предварительно созваниваемся на полчаса.</li>
-                            <li><strong>Встреча:</strong> Встреча длительностью час, где разбираем каждую задачу и определяем возможности применения ИИ — от ChatGPT до специализированных сервисов</li>
-                            <li><strong>Результат:</strong> Список конкретных инструментов и подходов, протестированных на ваших задачах</li>
+                <div class="pricing-card" onclick="toggleProject(this)">
+                    <div class="pricing-header">
+                        <div>
+                            <h3 class="pricing-title">Консультация</h3>
+                            <div class="pricing-price">25 000 ₽</div>
+                            <div class="pricing-timeline">Сроки: обычно 1–5 рабочих дней</div>
+                            <p class="pricing-brief">Помогаю понять, где LLM могут поддержать вашу работу — а где нет.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="project-content">
+                        <p class="pricing-description">
+                            Это консультация с подготовкой: я изучаю ваши задачи заранее, чтобы обсуждение было сфокусировано на решениях, а не на объяснениях.
+                        </p>
+                        <h4 style="font-size: 16px; font-weight: 600; color: #000; margin-top: 24px; margin-bottom: 12px;">Типичный процесс</h4>
+                        <ul style="list-style: none; margin-bottom: 20px;">
+                            <li><strong>Подготовка:</strong> Вы делитесь задачами, идеями или процессами, которые рассматриваете. Я изучаю контекст и готовлю рекомендации.</li>
+                            <li><strong>Обсуждение:</strong> 1–2 часа созвонов, где разбираем ваши кейсы один за другим. Я помогаю понять, где применить AI эффективно, где это избыточно, а где может навредить.</li>
+                            <li><strong>Результат:</strong> Краткое письменное резюме с рекомендациями: что делать прямо сейчас, что отложить, от чего отказаться.</li>
                         </ul>
+                        <p class="pricing-fit"><em>Хорошая стартовая точка для аудита AI-задач — будь то бизнес-процессы или личные рабочие потоки.</em></p>
                     </div>
                 </div>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Разработка</h3>
-                    <div class="pricing-price">Стоимость обговаривается индивидуально</div>
-                    <p class="pricing-description">
-                        Создаю веб-приложения, автоматизации с ИИ, телеграм-ботов, MVP и другие решения. Полная реализация от идеи до рабочего продукта. Длительность: от 2 недель до 3 месяцев в зависимости от сложности.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Процесс на примере автоматизации процессов бизнеса: <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li>Анализ текущих процессов и определение точек применения ИИ</li>
-                            <li>Выбор оптимальных технологий и языковых моделей под задачу</li>
-                            <li>Разработка решения методом low-code с интеграцией существующих систем</li>
-                            <li>При необходимости совмещаю роли разработчика и продакт-менеджера</li>
+                <div class="pricing-card" onclick="toggleProject(this)">
+                    <div class="pricing-header">
+                        <div>
+                            <h3 class="pricing-title">Анализ use case</h3>
+                            <div class="pricing-price">От 75 000 ₽</div>
+                            <div class="pricing-timeline">Сроки: 1–2 недели</div>
+                            <p class="pricing-brief">Помогаю понять, реалистична ли ваша идея AI-продукта или автоматизации — и что потребуется для реализации.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="project-content">
+                        <p class="pricing-description">
+                            Это глубокий анализ конкретного use case: изучаю осуществимость, риски, технологические ограничения и необходимые ресурсы.
+                        </p>
+                        <h4 style="font-size: 16px; font-weight: 600; color: #000; margin-top: 24px; margin-bottom: 12px;">Типичный процесс</h4>
+                        <ul style="list-style: none; margin-bottom: 20px;">
+                            <li><strong>Исследование:</strong> Разбираю задачу, изучаю данные, тестирую возможные подходы на прототипах.</li>
+                            <li><strong>Тестирование:</strong> Проверяю технологии на реальных примерах, чтобы понять, работает ли это на практике.</li>
+                            <li><strong>Отчёт:</strong> Детальное описание: что сработает, что нет, какие инструменты использовать, с какими рисками столкнётесь, что потребуется для реализации.</li>
                         </ul>
+                        <p class="pricing-fit"><em>Подходит, если вам нужно принять обоснованное технологическое решение до того, как вкладывать бюджет в разработку.</em></p>
+                    </div>
+                </div>
+
+                <div class="pricing-card" onclick="toggleProject(this)">
+                    <div class="pricing-header">
+                        <div>
+                            <h3 class="pricing-title">Validation Sprint</h3>
+                            <div class="pricing-price">От 190 000 ₽</div>
+                            <div class="pricing-timeline">Сроки: 2–4 недели</div>
+                            <p class="pricing-brief">Создаю рабочий прототип вашей идеи, чтобы протестировать его с реальными пользователями до полноценной разработки.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
+                    </div>
+                    <div class="project-content">
+                        <p class="pricing-description">
+                            Это спринт для валидации продуктовой гипотезы: вместо полноценной разработки создаём работающий прототип, тестируем на пользователях и собираем данные для принятия решений.
+                        </p>
+                        <h4 style="font-size: 16px; font-weight: 600; color: #000; margin-top: 24px; margin-bottom: 12px;">Типичный процесс</h4>
+                        <ul style="list-style: none; margin-bottom: 20px;">
+                            <li><strong>Быстрая разработка:</strong> Строю упрощённый, но функциональный прототип с core функционалом.</li>
+                            <li><strong>Реальное тестирование:</strong> Запускаем продукт с небольшой группой пользователей для сбора фидбека.</li>
+                            <li><strong>Анализ результатов:</strong> Собираем данные, анализируем поведение пользователей, фиксируем инсайты и готовим рекомендации для следующих шагов.</li>
+                        </ul>
+                        <p class="pricing-fit"><em>Подходит, если у вас есть гипотеза, которую нужно проверить быстро и недорого до крупных инвестиций в разработку.</em></p>
                     </div>
                 </div>
 
@@ -1098,7 +1114,7 @@
 
         function toggleProject(card) {
             // Close all other cards
-            document.querySelectorAll('.project-card').forEach(c => {
+            document.querySelectorAll('.project-card, .pricing-card').forEach(c => {
                 if (c !== card) {
                     c.classList.remove('expanded');
                 }
@@ -1106,11 +1122,6 @@
 
             // Toggle current card
             card.classList.toggle('expanded');
-        }
-
-        function toggleProcess(process) {
-            // Toggle current process
-            process.classList.toggle('expanded');
         }
 
         // Handle scroll to update active menu item on mobile

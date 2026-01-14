@@ -25,7 +25,7 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
-            background-color: #1a1a1a;
+            background-color: #f5f5f5;
             color: #333;
             overflow: hidden;
             height: 100vh;
@@ -41,7 +41,7 @@
         /* Left Panel - Fixed */
         .left-panel {
             width: 100%;
-            background: #f5f5f5;
+            background: #1a1a1a;
             padding: 80px 60px;
             display: flex;
             flex-direction: column;
@@ -70,14 +70,14 @@
             font-size: 48px;
             font-weight: 700;
             margin-bottom: 32px;
-            color: #000;
+            color: #fff;
             letter-spacing: -2px;
             line-height: 1.1;
         }
 
         .profile-section .subtitle {
             font-size: 16px;
-            color: #666;
+            color: #999;
             line-height: 1.7;
             margin-bottom: 50px;
             font-weight: 400;
@@ -100,13 +100,13 @@
 
         .nav-number {
             font-size: 15px;
-            color: #e0e0e0;
+            color: #666;
             margin-right: 20px;
             font-weight: 300;
         }
 
         .nav-dash {
-            color: #e0e0e0;
+            color: #666;
             margin: 0 16px;
         }
 
@@ -123,7 +123,7 @@
         }
 
         .nav-item.active .nav-title {
-            color: #000;
+            color: #fff;
         }
 
         .nav-item:hover {
@@ -139,7 +139,7 @@
 
         .social-links a {
             text-decoration: none;
-            color: #000;
+            color: #fff;
             font-size: 13px;
             display: flex;
             align-items: center;
@@ -156,10 +156,10 @@
         .right-panel {
             flex: 1;
             margin-left: 100%;
-            background-color: #1a1a1a;
+            background-color: #fff;
             overflow-y: auto;
             padding: 80px 60px;
-            color: white;
+            color: #333;
             transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             opacity: 0;
         }
@@ -182,7 +182,7 @@
             font-family: 'SF Pro Display', -apple-system, sans-serif;
             font-size: 20px;
             margin-bottom: 80px;
-            color: #666;
+            color: #999;
             font-weight: 200;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -196,19 +196,19 @@
         .about-content h3 {
             font-size: 22px;
             font-weight: 700;
-            color: white;
+            color: #000;
             margin-top: 40px;
             margin-bottom: 16px;
             padding-left: 16px;
-            border-left: 3px solid #6B9BD1;
+            border-left: 3px solid #D4AF37;
         }
 
         .about-content p {
             font-size: 15px;
-            color: #999;
-            line-height: 1.5;
+            color: #666;
+            line-height: 1.6;
             margin-bottom: 18px;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .about-content ul {
@@ -218,26 +218,36 @@
 
         .about-content li {
             font-size: 15px;
-            color: #999;
-            line-height: 1.5;
+            color: #666;
+            line-height: 1.6;
             margin-bottom: 8px;
             padding-left: 20px;
             position: relative;
-            font-weight: 300;
+            font-weight: 400;
         }
 
         .about-content li:before {
             content: "•";
             position: absolute;
             left: 0;
-            color: #666;
+            color: #999;
+        }
+
+        .about-content strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        .about-content em {
+            font-style: italic;
+            color: #333;
         }
 
         /* Project Cards */
         .project-card {
             margin-bottom: 50px;
             padding-bottom: 40px;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid #e0e0e0;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -247,22 +257,22 @@
         }
 
         .project-card:hover {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(0, 0, 0, 0.02);
             border-radius: 8px;
         }
 
         .project-card:hover .project-title {
-            color: white;
+            color: #000;
         }
 
         .project-card:hover .expand-icon {
-            color: #999;
+            color: #333;
             transform: scaleX(1.2) translateY(2px);
         }
 
         .project-type {
             font-size: 11px;
-            color: #666;
+            color: #999;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 16px;
@@ -279,14 +289,14 @@
             font-size: 30px;
             font-weight: 600;
             margin-bottom: 0;
-            color: #e8e8e8;
+            color: #333;
             letter-spacing: -1px;
             transition: color 0.3s ease;
         }
 
         .expand-icon {
             font-size: 18px;
-            color: #666;
+            color: #999;
             transition: all 0.3s ease;
             line-height: 1;
             display: inline-block;
@@ -311,10 +321,10 @@
 
         .project-description {
             font-size: 15px;
-            color: #999;
-            line-height: 1.5;
+            color: #666;
+            line-height: 1.6;
             max-width: 600px;
-            font-weight: 300;
+            font-weight: 400;
             margin-top: 18px;
         }
 
@@ -322,44 +332,82 @@
             display: flex;
             gap: 20px;
             font-size: 14px;
-            color: #666;
+            color: #999;
             margin-top: 20px;
             font-style: italic;
         }
 
         /* Pricing Cards */
         .pricing-card {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             padding-bottom: 40px;
-            border-bottom: 1px solid #2a2a2a;
+            border-bottom: 1px solid #e0e0e0;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
 
         .pricing-card:last-child {
             border-bottom: none;
-            padding-bottom: 40px;
+        }
+
+        .pricing-card:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+        }
+
+        .pricing-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
         }
 
         .pricing-title {
             font-size: 30px;
-            font-weight: 700;
-            color: white;
+            font-weight: 600;
+            color: #333;
             margin-bottom: 8px;
             letter-spacing: -0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .pricing-card:hover .pricing-title {
+            color: #000;
         }
 
         .pricing-price {
             font-size: 20px;
-            font-weight: 400;
-            color: #6B9BD1;
-            margin-bottom: 24px;
+            font-weight: 600;
+            color: #D4AF37;
+            margin-bottom: 8px;
+        }
+
+        .pricing-timeline {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .pricing-brief {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 0;
         }
 
         .pricing-description {
             font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+            font-weight: 400;
+            margin-bottom: 16px;
+        }
+
+        .pricing-fit {
+            font-size: 15px;
             color: #999;
-            line-height: 1.5;
-            font-weight: 300;
-            margin-bottom: 20px;
+            line-height: 1.6;
+            margin-top: 20px;
         }
 
         .pricing-process {
@@ -370,7 +418,7 @@
         .pricing-process h4 {
             font-size: 16px;
             font-weight: 500;
-            color: #ccc;
+            color: #666;
             margin-bottom: 0;
             display: flex;
             align-items: center;
@@ -379,12 +427,12 @@
         }
 
         .pricing-process h4:hover {
-            color: white;
+            color: #000;
         }
 
         .pricing-process .process-icon {
             font-size: 16px;
-            color: #666;
+            color: #999;
             transition: all 0.3s ease;
             display: inline-block;
             transform: scaleX(1.2);
@@ -392,7 +440,7 @@
         }
 
         .pricing-process:hover .process-icon {
-            color: #999;
+            color: #333;
             transform: scaleX(1.2) translateY(2px);
         }
 
@@ -415,10 +463,10 @@
 
         .pricing-process li {
             font-size: 15px;
-            color: #999;
-            line-height: 1.5;
+            color: #666;
+            line-height: 1.6;
             margin-bottom: 10px;
-            font-weight: 300;
+            font-weight: 400;
             padding-left: 20px;
             position: relative;
         }
@@ -427,12 +475,12 @@
             content: "•";
             position: absolute;
             left: 0;
-            color: #666;
+            color: #999;
         }
 
         .pricing-process strong {
-            color: #ccc;
-            font-weight: 500;
+            color: #333;
+            font-weight: 600;
         }
 
         /* Tech Grid */
@@ -445,34 +493,34 @@
 
         .tech-item {
             font-size: 15px;
-            color: #999;
-            font-weight: 300;
+            color: #666;
+            font-weight: 400;
             transition: color 0.3s ease;
             cursor: default;
             padding-bottom: 8px;
-            border-bottom: 1px solid #333;
+            border-bottom: 1px solid #e0e0e0;
         }
 
         .tech-item:hover {
-            color: #fff;
+            color: #000;
         }
 
         .tech-note {
-            color: #999;
+            color: #666;
             margin-bottom: 40px;
             font-size: 15px;
-            font-weight: 300;
-            line-height: 1.5;
+            font-weight: 400;
+            line-height: 1.6;
             max-width: 700px;
         }
 
         /* Buttons */
         .text-button {
             display: inline-block;
-            color: #999;
+            color: #666;
             text-decoration: none;
             font-size: 15px;
-            border-bottom: 1px solid #666;
+            border-bottom: 1px solid #999;
             padding-bottom: 2px;
             transition: all 0.3s ease;
             font-weight: 400;
@@ -480,8 +528,8 @@
         }
 
         .text-button:hover {
-            color: white;
-            border-color: white;
+            color: #000;
+            border-color: #000;
         }
 
         .text-button:after {
@@ -499,7 +547,7 @@
         .cta-section h3 {
             font-size: 22px;
             margin-bottom: 20px;
-            color: white;
+            color: #000;
             font-weight: 400;
         }
 
@@ -509,16 +557,16 @@
         }
 
         .right-panel::-webkit-scrollbar-track {
-            background: #1a1a1a;
+            background: #fff;
         }
 
         .right-panel::-webkit-scrollbar-thumb {
-            background: #333;
+            background: #ccc;
             border-radius: 4px;
         }
 
         .right-panel::-webkit-scrollbar-thumb:hover {
-            background: #444;
+            background: #999;
         }
 
         /* Responsive for medium screens */
@@ -831,30 +879,29 @@
             <div id="about" class="section active">
                 <div class="section-header">About</div>
                 <div class="about-content">
-                    <p>I build AI-powered tools and help teams understand when and how AI is actually worth using.</p>
+                    <p><strong>I design and build LLM-based AI systems to automate business processes and help teams apply them in ways that create real business value.</strong></p>
 
-                    <p>My work sits at the intersection of applied LLM systems, product thinking, and decision-making under uncertainty — especially in cases where it's not obvious whether AI should be used at all.</p>
+                    <p>My work combines hands-on AI development, product thinking, and a research-driven approach to decision-making — especially in complex or high-stakes scenarios where the right way to apply AI isn't immediately obvious.</p>
 
                     <h3>Building & shipping</h3>
                     <ul>
-                        <li>Received a development grant from OpenAI</li>
-                        <li>Completed Founder Institute accelerator (Silicon Valley)</li>
-                        <li>Launched products on Product Hunt</li>
-                        <li>Co-founded Pythia, an AI platform for market research</li>
-                        <li>Currently building <a href="https://dailyn.cc" target="_blank" style="color: #ccc; text-decoration: underline;">dailyn.cc</a> — a personalized news product</li>
+                        <li><strong>OpenAI development grant</strong>, Product Hunt launches</li>
+                        <li>Founder Institute alum (Silicon Valley chapter)</li>
+                        <li>Co-founded <em>Pythia</em>, an AI platform for market research</li>
+                        <li>Currently building <em>dailyn.cc</em>, a personalized news product</li>
                     </ul>
 
                     <h3>Business experience</h3>
                     <ul>
-                        <li>5+ years in corporations, including General Electric</li>
-                        <li>Worked on market research, competitive analysis, and trend reports for product and strategic decisions</li>
-                        <li>I understand how business processes work in practice — beyond slide decks and theoretical frameworks, and how AI fits (or doesn't fit) into real teams and constraints</li>
+                        <li>10+ years working with businesses, including over 5 years in corporate roles (General Electric)</li>
+                        <li>Experience in leading market research, internal consulting, and product work</li>
+                        <li>Hands-on AI development informed by product intuition and real-world business experience</li>
                     </ul>
 
                     <h3>Research</h3>
                     <ul>
-                        <li>Yale University Fellow (Fox International Fellowship)</li>
-                        <li>Research background in trust in AI and human–technology interaction, with a focus on how people decide to rely on technology in sensitive or high-stakes contexts</li>
+                        <li><strong>Yale University Fellow</strong> (Fox International Fellowship)</li>
+                        <li>Research background in trust in AI and human–technology interaction, with a focus on how people make decisions in high-stakes or sensitive contexts</li>
                     </ul>
                 </div>
             </div>
@@ -983,64 +1030,78 @@
 
                 <p class="tech-note" style="margin-bottom: 60px;">I work primarily with LLM-based systems and generative AI — from ChatGPT-level tools to custom workflows and automations. My focus is on tasks and processes that can realistically be improved with AI, not on "AI for the sake of AI".</p>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Expert Review</h3>
-                    <div class="pricing-price">$1,000</div>
-                    <p class="pricing-description">
-                        Timeline: usually 1–5 business days<br><br>
-                        I help you understand where LLMs can support your work — and where they can't.<br><br>
-                        This is a consultation with preparation: I review your context and cases in advance, so our discussion is focused on decisions, not explanations.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Typical process <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li><strong>Prep:</strong> You share the cases, ideas, or tasks you're considering. This can be one specific problem or several use cases you want to sanity-check.</li>
-                            <li><strong>Discussion:</strong> 1–2 hours of calls where we go through your cases and explore possible approaches — from simple tools to more advanced setups.</li>
-                            <li><strong>Result:</strong> A short written summary with recommendations: what makes sense, what doesn't, and what's better postponed or skipped.</li>
-                        </ul>
+                <div class="pricing-card" onclick="toggleProject(this)">
+                    <div class="pricing-header">
+                        <div>
+                            <h3 class="pricing-title">Expert Review</h3>
+                            <div class="pricing-price">$1,000</div>
+                            <div class="pricing-timeline">Timeline: usually 1–5 business days</div>
+                            <p class="pricing-brief">I help you understand where LLMs can support your work — and where they can't.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <p class="pricing-description" style="margin-top: 20px;">A good starting point for an AI task audit — whether for business processes or personal workflows.</p>
+                    <div class="project-content">
+                        <p class="pricing-description">
+                            This is a consultation with preparation: I review your context and cases in advance, so our discussion is focused on decisions, not explanations.
+                        </p>
+                        <h4 style="font-size: 16px; font-weight: 600; color: #000; margin-top: 24px; margin-bottom: 12px;">Typical process</h4>
+                        <ul style="list-style: none; margin-bottom: 20px;">
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;"><strong>Prep:</strong> You share the cases, ideas, or tasks you're considering. This can be one specific problem or several use cases you want to sanity-check.</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;"><strong>Discussion:</strong> 1–2 hours of calls where we go through your cases and explore possible approaches — from simple tools to more advanced setups.</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;"><strong>Result:</strong> A short written summary with recommendations: what makes sense, what doesn't, and what's better postponed or skipped.</li>
+                        </ul>
+                        <p class="pricing-fit"><em>A good starting point for an AI task audit — whether for business processes or personal workflows.</em></p>
+                    </div>
                 </div>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Use Case Analysis</h3>
-                    <div class="pricing-price">Starting at $3,000</div>
-                    <p class="pricing-description">
-                        Timeline: 1–2 weeks, depending on scope<br><br>
-                        A deeper analysis of selected AI or LLM use cases, without building a production system.<br><br>
-                        The goal here is to think through a case properly and explain how it may work in practice — including constraints, risks, and trade-offs.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Typical process <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li>We define the scope together (one complex case or several simpler ones)</li>
-                            <li>I explore the logic of the solution, test ideas conceptually, and run small experiments when useful (for example, prompt tests or simplified workflows)</li>
-                            <li>2–3 calls to discuss findings along the way</li>
-                            <li><strong>Result:</strong> a structured written explanation covering: how the solution could work; key assumptions and risks; limitations and trade-offs; alternative approaches worth considering</li>
-                        </ul>
+                <div class="pricing-card" onclick="toggleProject(this)">
+                    <div class="pricing-header">
+                        <div>
+                            <h3 class="pricing-title">Use Case Analysis</h3>
+                            <div class="pricing-price">Starting at $3,000</div>
+                            <div class="pricing-timeline">Timeline: 1–2 weeks, depending on scope</div>
+                            <p class="pricing-brief">A deeper analysis of selected AI or LLM use cases, without building a production system.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <p class="pricing-description" style="margin-top: 20px;">A good fit if a single consultation isn't enough and you want clarity before deciding whether to build.</p>
+                    <div class="project-content">
+                        <p class="pricing-description">
+                            The goal here is to think through a case properly and explain how it may work in practice — including constraints, risks, and trade-offs.
+                        </p>
+                        <h4 style="font-size: 16px; font-weight: 600; color: #000; margin-top: 24px; margin-bottom: 12px;">Typical process</h4>
+                        <ul style="list-style: none; margin-bottom: 20px;">
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;">We define the scope together (one complex case or several simpler ones)</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;">I explore the logic of the solution, test ideas conceptually, and run small experiments when useful (for example, prompt tests or simplified workflows)</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;">2–3 calls to discuss findings along the way</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;"><strong>Result:</strong> a structured written explanation covering: how the solution could work; key assumptions and risks; limitations and trade-offs; alternative approaches worth considering</li>
+                        </ul>
+                        <p class="pricing-fit"><em>A good fit if a single consultation isn't enough and you want clarity before deciding whether to build.</em></p>
+                    </div>
                 </div>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Validation Sprint</h3>
-                    <div class="pricing-price">Starting at $7,500</div>
-                    <p class="pricing-description">
-                        Timeline: 2–4 weeks<br><br>
-                        Hands-on validation of a selected AI or LLM use case through a working prototype or automation flow.<br><br>
-                        At this stage, we move from reasoning to practice and see how things actually perform with real or semi-real inputs.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Typical process <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li>We agree on the validation goal and scope</li>
-                            <li>I build a prototype or automation (using low-code tools and LLM APIs)</li>
-                            <li>We test, iterate if needed, and observe limitations</li>
-                            <li><strong>Result:</strong> a clear outcome — what works, what doesn't, and why</li>
-                        </ul>
+                <div class="pricing-card" onclick="toggleProject(this)">
+                    <div class="pricing-header">
+                        <div>
+                            <h3 class="pricing-title">Validation Sprint</h3>
+                            <div class="pricing-price">Starting at $7,500</div>
+                            <div class="pricing-timeline">Timeline: 2–4 weeks</div>
+                            <p class="pricing-brief">Hands-on validation of a selected AI or LLM use case through a working prototype or automation flow.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <p class="pricing-description" style="margin-top: 20px;">The deliverable can be a working prototype, a demo automation, or a solid understanding that the idea isn't worth scaling further.<br><br>
-                        Next steps (full development, long-term support, or maintenance) are discussed separately and depend on the case.</p>
+                    <div class="project-content">
+                        <p class="pricing-description">
+                            At this stage, we move from reasoning to practice and see how things actually perform with real or semi-real inputs.
+                        </p>
+                        <h4 style="font-size: 16px; font-weight: 600; color: #000; margin-top: 24px; margin-bottom: 12px;">Typical process</h4>
+                        <ul style="list-style: none; margin-bottom: 20px;">
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;">We agree on the validation goal and scope</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;">I build a prototype or automation (using low-code tools and LLM APIs)</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;">We test, iterate if needed, and observe limitations</li>
+                            <li style="font-size: 15px; color: #666; line-height: 1.6; margin-bottom: 8px; padding-left: 20px; position: relative;"><strong>Result:</strong> a clear outcome — what works, what doesn't, and why</li>
+                        </ul>
+                        <p class="pricing-fit"><em>The deliverable can be a working prototype, a demo automation, or a solid understanding that the idea isn't worth scaling further. Next steps (full development, long-term support, or maintenance) are discussed separately and depend on the case.</em></p>
+                    </div>
                 </div>
 
                 <div style="margin-top: 30px;">
