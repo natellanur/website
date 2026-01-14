@@ -194,11 +194,13 @@
         }
 
         .about-content h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: white;
-            margin-top: 32px;
-            margin-bottom: 14px;
+            font-size: 22px;
+            font-weight: 700;
+            color: #000;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            padding-left: 16px;
+            border-left: 3px solid #D4AF37;
         }
 
         .about-content p {
@@ -254,8 +256,18 @@
             border-bottom: none;
         }
 
+        .project-card:hover {
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 8px;
+        }
+
         .project-card:hover .project-title {
-            opacity: 0.7;
+            color: #000;
+        }
+
+        .project-card:hover .expand-icon {
+            color: #333;
+            transform: scaleX(1.2) translateY(2px);
         }
 
         .project-type {
@@ -274,21 +286,22 @@
         }
 
         .project-title {
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 30px;
+            font-weight: 600;
             margin-bottom: 0;
-            color: white;
+            color: #333;
             letter-spacing: -1px;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .expand-icon {
-            font-size: 12px;
+            font-size: 18px;
             color: #666;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             line-height: 1;
             display: inline-block;
-            transform: scaleX(1.4);
+            transform: scaleX(1.2);
+            margin-left: 12px;
         }
 
         .project-card.expanded .expand-icon {
@@ -377,10 +390,23 @@
         }
 
         .pricing-price {
-            font-size: 17px;
-            font-weight: 300;
+            font-size: 20px;
+            font-weight: 600;
+            color: #D4AF37;
+            margin-bottom: 8px;
+        }
+
+        .pricing-timeline {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 12px;
+        }
+
+        .pricing-brief {
+            font-size: 15px;
             color: #666;
-            margin-bottom: 24px;
+            line-height: 1.5;
+            margin: 0;
         }
 
         .pricing-description {
