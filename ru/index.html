@@ -184,13 +184,11 @@
         }
 
         .about-content h3 {
-            font-size: 22px;
-            font-weight: 700;
+            font-size: 20px;
+            font-weight: 600;
             color: white;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            padding-left: 16px;
-            border-left: 3px solid #6B9BD1;
+            margin-top: 32px;
+            margin-bottom: 14px;
         }
 
         .about-content p {
@@ -236,18 +234,8 @@
             border-bottom: none;
         }
 
-        .project-card:hover {
-            background: rgba(255, 255, 255, 0.02);
-            border-radius: 8px;
-        }
-
         .project-card:hover .project-title {
-            color: white;
-        }
-
-        .project-card:hover .expand-icon {
-            color: #999;
-            transform: scaleX(1.2) translateY(2px);
+            opacity: 0.7;
         }
 
         .project-type {
@@ -266,22 +254,21 @@
         }
 
         .project-title {
-            font-size: 30px;
-            font-weight: 600;
+            font-size: 36px;
+            font-weight: 700;
             margin-bottom: 0;
-            color: #e8e8e8;
+            color: white;
             letter-spacing: -1px;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .expand-icon {
-            font-size: 18px;
+            font-size: 12px;
             color: #666;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             line-height: 1;
             display: inline-block;
-            transform: scaleX(1.2);
-            margin-left: 12px;
+            transform: scaleX(1.4);
         }
 
         .project-card.expanded .expand-icon {
@@ -338,9 +325,9 @@
         }
 
         .pricing-price {
-            font-size: 20px;
-            font-weight: 400;
-            color: #6B9BD1;
+            font-size: 17px;
+            font-weight: 300;
+            color: #666;
             margin-bottom: 24px;
         }
 
@@ -373,17 +360,12 @@
         }
 
         .pricing-process .process-icon {
-            font-size: 16px;
+            font-size: 10px;
             color: #666;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             display: inline-block;
-            transform: scaleX(1.2);
+            transform: scaleX(1.4);
             margin-left: 8px;
-        }
-
-        .pricing-process:hover .process-icon {
-            color: #999;
-            transform: scaleX(1.2) translateY(2px);
         }
 
         .pricing-process.expanded .process-icon {
