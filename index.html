@@ -194,13 +194,11 @@
         }
 
         .about-content h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #000;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            padding-left: 16px;
-            border-left: 3px solid #D4AF37;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            margin-top: 32px;
+            margin-bottom: 14px;
         }
 
         .about-content p {
@@ -256,18 +254,8 @@
             border-bottom: none;
         }
 
-        .project-card:hover {
-            background: rgba(0, 0, 0, 0.02);
-            border-radius: 8px;
-        }
-
         .project-card:hover .project-title {
-            color: #000;
-        }
-
-        .project-card:hover .expand-icon {
-            color: #333;
-            transform: scaleX(1.2) translateY(2px);
+            opacity: 0.7;
         }
 
         .project-type {
@@ -286,22 +274,21 @@
         }
 
         .project-title {
-            font-size: 30px;
-            font-weight: 600;
+            font-size: 36px;
+            font-weight: 700;
             margin-bottom: 0;
-            color: #333;
+            color: white;
             letter-spacing: -1px;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .expand-icon {
-            font-size: 18px;
+            font-size: 12px;
             color: #666;
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease;
             line-height: 1;
             display: inline-block;
-            transform: scaleX(1.2);
-            margin-left: 12px;
+            transform: scaleX(1.4);
         }
 
         .project-card.expanded .expand-icon {
@@ -315,7 +302,7 @@
         }
 
         .project-card.expanded .project-content {
-            max-height: 500px;
+            max-height: 300px;
             transition: max-height 0.4s ease-in;
         }
 
@@ -375,38 +362,11 @@
             color: #000;
         }
 
-        .pricing-card:hover .expand-icon {
-            color: #333;
-            transform: scaleX(1.2) translateY(2px);
-        }
-
-        .pricing-card.expanded .expand-icon {
-            transform: scaleX(1.4) rotate(180deg);
-        }
-
-        .pricing-card.expanded .project-content {
-            max-height: 800px;
-            transition: max-height 0.4s ease-in;
-        }
-
         .pricing-price {
-            font-size: 20px;
-            font-weight: 600;
-            color: #D4AF37;
-            margin-bottom: 8px;
-        }
-
-        .pricing-timeline {
-            font-size: 14px;
-            color: #999;
-            margin-bottom: 12px;
-        }
-
-        .pricing-brief {
-            font-size: 15px;
+            font-size: 17px;
+            font-weight: 300;
             color: #666;
-            line-height: 1.5;
-            margin: 0;
+            margin-bottom: 24px;
         }
 
         .pricing-description {
