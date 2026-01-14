@@ -264,7 +264,7 @@
         }
 
         .project-title {
-            font-size: 36px;
+            font-size: 30px;
             font-weight: 700;
             margin-bottom: 0;
             color: white;
@@ -292,7 +292,7 @@
         }
 
         .project-card.expanded .project-content {
-            max-height: 300px;
+            max-height: 600px;
             transition: max-height 0.4s ease-in;
         }
 
@@ -813,30 +813,29 @@
             <div id="about" class="section active">
                 <div class="section-header">About</div>
                 <div class="about-content">
-                    <p>I build AI-powered tools and help teams understand when and how AI is actually worth using.</p>
+                    <p>I design and build <strong style="color: #ccc;">LLM-based AI systems</strong> to automate business processes and help teams apply them in ways that create real business value.</p>
 
-                    <p>My work sits at the intersection of applied LLM systems, product thinking, and decision-making under uncertainty — especially in cases where it's not obvious whether AI should be used at all.</p>
+                    <p>My work combines <strong style="color: #ccc;">hands-on AI development, product thinking, and a research-driven approach</strong> to decision-making — especially in complex or high-stakes scenarios where the right way to apply AI isn't immediately obvious.</p>
 
                     <h3>Building & shipping</h3>
                     <ul>
-                        <li>Received a development grant from OpenAI</li>
-                        <li>Completed Founder Institute accelerator (Silicon Valley)</li>
-                        <li>Launched products on Product Hunt</li>
-                        <li>Co-founded Pythia, an AI platform for market research</li>
-                        <li>Currently building <a href="https://dailyn.cc" target="_blank" style="color: #ccc; text-decoration: underline;">dailyn.cc</a> — a personalized news product</li>
+                        <li><strong style="color: #ccc;">OpenAI</strong> development grant, <strong style="color: #ccc;">Product Hunt</strong> launches</li>
+                        <li><strong style="color: #ccc;">Founder Institute</strong> alum (Silicon Valley chapter)</li>
+                        <li>Co-founded <em style="color: #ccc;">Pythia</em>, an AI platform for market research</li>
+                        <li>Currently building <a href="https://dailyn.cc" target="_blank" style="color: #ccc; text-decoration: underline; font-style: italic;">dailyn.cc</a>, a personalized news product</li>
                     </ul>
 
                     <h3>Business experience</h3>
                     <ul>
-                        <li>5+ years in corporations, including General Electric</li>
-                        <li>Worked on market research, competitive analysis, and trend reports for product and strategic decisions</li>
-                        <li>I understand how business processes work in practice — beyond slide decks and theoretical frameworks, and how AI fits (or doesn't fit) into real teams and constraints</li>
+                        <li><strong style="color: #ccc;">10+ years</strong> working with businesses, including over <strong style="color: #ccc;">5 years in corporate roles</strong> (<strong style="color: #ccc;">General Electric</strong>)</li>
+                        <li>Experience in leading <strong style="color: #ccc;">market research, internal consulting, and product work</strong></li>
+                        <li>Hands-on AI development informed by product intuition and real-world business experience</li>
                     </ul>
 
                     <h3>Research</h3>
                     <ul>
-                        <li>Yale University Fellow (Fox International Fellowship)</li>
-                        <li>Research background in trust in AI and human–technology interaction, with a focus on how people decide to rely on technology in sensitive or high-stakes contexts</li>
+                        <li><strong style="color: #ccc;">Yale University Fellow</strong> (Fox International Fellowship)</li>
+                        <li>Research background in <strong style="color: #ccc;">trust in AI and human–technology interaction</strong>, with a focus on how people make decisions in high-stakes or sensitive contexts</li>
                     </ul>
                 </div>
             </div>
@@ -965,64 +964,99 @@
 
                 <p class="tech-note" style="margin-bottom: 60px;">I work primarily with LLM-based systems and generative AI — from ChatGPT-level tools to custom workflows and automations. My focus is on tasks and processes that can realistically be improved with AI, not on "AI for the sake of AI".</p>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Expert Review</h3>
-                    <div class="pricing-price">$1,000</div>
-                    <p class="pricing-description">
-                        Timeline: usually 1–5 business days<br><br>
-                        I help you understand where LLMs can support your work — and where they can't.<br><br>
-                        This is a consultation with preparation: I review your context and cases in advance, so our discussion is focused on decisions, not explanations.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Typical process <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li><strong>Prep:</strong> You share the cases, ideas, or tasks you're considering. This can be one specific problem or several use cases you want to sanity-check.</li>
-                            <li><strong>Discussion:</strong> 1–2 hours of calls where we go through your cases and explore possible approaches — from simple tools to more advanced setups.</li>
-                            <li><strong>Result:</strong> A short written summary with recommendations: what makes sense, what doesn't, and what's better postponed or skipped.</li>
-                        </ul>
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Expert Review</h3>
+                            <div class="pricing-price" style="margin-bottom: 8px; margin-top: 8px;">$1,000 • 1–5 business days</div>
+                            <p class="pricing-description" style="font-size: 14px; color: #999; margin-bottom: 0;">I help you understand where LLMs can support your work — and where they can't.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <p class="pricing-description" style="margin-top: 20px;">A good starting point for an AI task audit — whether for business processes or personal workflows.</p>
+                    <div class="project-content" style="max-height: 0;">
+                        <div style="margin-top: 24px;">
+                            <p class="project-description">
+                                This is a consultation with preparation: I review your context and cases in advance, so our discussion is focused on decisions, not explanations.
+                            </p>
+
+                            <div style="margin-top: 24px;">
+                                <h4 style="font-size: 16px; font-weight: 500; color: #ccc; margin-bottom: 12px;">Typical process</h4>
+                                <ul style="list-style: none; margin: 0; padding: 0;">
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Prep:</strong> You share the cases, ideas, or tasks you're considering. This can be one specific problem or several use cases you want to sanity-check.</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Discussion:</strong> 1–2 hours of calls where we go through your cases and explore possible approaches — from simple tools to more advanced setups.</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Result:</strong> A short written summary with recommendations: what makes sense, what doesn't, and what's better postponed or skipped.</li>
+                                </ul>
+                            </div>
+
+                            <p class="project-description" style="margin-top: 20px; font-style: italic;">
+                                A good starting point for an AI task audit — whether for business processes or personal workflows.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Use Case Analysis</h3>
-                    <div class="pricing-price">Starting at $3,000</div>
-                    <p class="pricing-description">
-                        Timeline: 1–2 weeks, depending on scope<br><br>
-                        A deeper analysis of selected AI or LLM use cases, without building a production system.<br><br>
-                        The goal here is to think through a case properly and explain how it may work in practice — including constraints, risks, and trade-offs.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Typical process <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li>We define the scope together (one complex case or several simpler ones)</li>
-                            <li>I explore the logic of the solution, test ideas conceptually, and run small experiments when useful (for example, prompt tests or simplified workflows)</li>
-                            <li>2–3 calls to discuss findings along the way</li>
-                            <li><strong>Result:</strong> a structured written explanation covering: how the solution could work; key assumptions and risks; limitations and trade-offs; alternative approaches worth considering</li>
-                        </ul>
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Use Case Analysis</h3>
+                            <div class="pricing-price" style="margin-bottom: 8px; margin-top: 8px;">Starting at $3,000 • 1–2 weeks</div>
+                            <p class="pricing-description" style="font-size: 14px; color: #999; margin-bottom: 0;">A deeper analysis of selected AI or LLM use cases, without building a production system.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <p class="pricing-description" style="margin-top: 20px;">A good fit if a single consultation isn't enough and you want clarity before deciding whether to build.</p>
+                    <div class="project-content" style="max-height: 0;">
+                        <div style="margin-top: 24px;">
+                            <p class="project-description">
+                                The goal here is to think through a case properly and explain how it may work in practice — including constraints, risks, and trade-offs.
+                            </p>
+
+                            <div style="margin-top: 24px;">
+                                <h4 style="font-size: 16px; font-weight: 500; color: #ccc; margin-bottom: 12px;">Typical process</h4>
+                                <ul style="list-style: none; margin: 0; padding: 0;">
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>We define the scope together (one complex case or several simpler ones)</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>I explore the logic of the solution, test ideas conceptually, and run small experiments when useful (for example, prompt tests or simplified workflows)</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>2–3 calls to discuss findings along the way</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Result:</strong> a structured written explanation covering: how the solution could work; key assumptions and risks; limitations and trade-offs; alternative approaches worth considering</li>
+                                </ul>
+                            </div>
+
+                            <p class="project-description" style="margin-top: 20px; font-style: italic;">
+                                A good fit if a single consultation isn't enough and you want clarity before deciding whether to build.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="pricing-card">
-                    <h3 class="pricing-title">Validation Sprint</h3>
-                    <div class="pricing-price">Starting at $7,500</div>
-                    <p class="pricing-description">
-                        Timeline: 2–4 weeks<br><br>
-                        Hands-on validation of a selected AI or LLM use case through a working prototype or automation flow.<br><br>
-                        At this stage, we move from reasoning to practice and see how things actually perform with real or semi-real inputs.
-                    </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Typical process <span class="process-icon">▼</span></h4>
-                        <ul>
-                            <li>We agree on the validation goal and scope</li>
-                            <li>I build a prototype or automation (using low-code tools and LLM APIs)</li>
-                            <li>We test, iterate if needed, and observe limitations</li>
-                            <li><strong>Result:</strong> a clear outcome — what works, what doesn't, and why</li>
-                        </ul>
+                <div class="project-card" onclick="toggleProject(this)">
+                    <div class="project-header">
+                        <div>
+                            <h3 class="project-title">Validation Sprint</h3>
+                            <div class="pricing-price" style="margin-bottom: 8px; margin-top: 8px;">Starting at $7,500 • 2–4 weeks</div>
+                            <p class="pricing-description" style="font-size: 14px; color: #999; margin-bottom: 0;">Hands-on validation of a selected AI or LLM use case through a working prototype or automation flow.</p>
+                        </div>
+                        <span class="expand-icon">▼</span>
                     </div>
-                    <p class="pricing-description" style="margin-top: 20px;">The deliverable can be a working prototype, a demo automation, or a solid understanding that the idea isn't worth scaling further.<br><br>
-                        Next steps (full development, long-term support, or maintenance) are discussed separately and depend on the case.</p>
+                    <div class="project-content" style="max-height: 0;">
+                        <div style="margin-top: 24px;">
+                            <p class="project-description">
+                                At this stage, we move from reasoning to practice and see how things actually perform with real or semi-real inputs.
+                            </p>
+
+                            <div style="margin-top: 24px;">
+                                <h4 style="font-size: 16px; font-weight: 500; color: #ccc; margin-bottom: 12px;">Typical process</h4>
+                                <ul style="list-style: none; margin: 0; padding: 0;">
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>We agree on the validation goal and scope</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>I build a prototype or automation (using low-code tools and LLM APIs)</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>We test, iterate if needed, and observe limitations</li>
+                                    <li style="font-size: 15px; color: #999; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Result:</strong> a clear outcome — what works, what doesn't, and why</li>
+                                </ul>
+                            </div>
+
+                            <p class="project-description" style="margin-top: 20px; font-style: italic;">
+                                The deliverable can be a working prototype, a demo automation, or a solid understanding that the idea isn't worth scaling further. Next steps (full development, long-term support, or maintenance) are discussed separately and depend on the case.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
                 <div style="margin-top: 30px;">
