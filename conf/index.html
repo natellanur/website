@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дискурс конкуренции человека и ИИ — Ломоносов-2026</title>
+<meta name="description" content="Презентация Нателлы Нуралиевой о доверии к ИИ в государственном управлении.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Дискурс конкуренции человека и ИИ — Ломоносов-2026">
+<meta property="og:description" content="Дискурс конкуренции человека и ИИ в формировании доверия при внедрении ИИ в государственное управление.">
+<meta property="og:url" content="https://natella.me/conf/">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400&family=PT+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#f3efe7;--bg-deep:#ebe5d8;--ink:#1d1a16;--ink-soft:#3a342c;--muted:#6a6357;--rule:#c7bfae;--accent:#7a2a1e;--accent-soft:#a85947;--paper:#fbf8f1}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#111;color:var(--ink);font-family:'PT Sans',-apple-system,sans-serif;overflow:hidden;height:100%}
+  #deck-wrap{position:fixed;inset:0;background:#111;overflow:hidden}
+  #deck-inner{width:1920px;height:1080px;transform-origin:top left;position:absolute;top:0;left:0}
+  #deck-inner section{position:absolute;inset:0;display:none;flex-direction:column;background:var(--bg);color:var(--ink);font-family:'PT Sans',sans-serif;font-size:34px;line-height:1.4;padding:100px}
+  #deck-inner section.active{display:flex}
+  #nav{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:12px;align-items:center;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);border-radius:40px;padding:10px 24px;font-family:'JetBrains Mono',monospace;font-size:18px;color:#a59a85;z-index:100;user-select:none}
+  #nav button{background:none;border:1px solid #555;color:#ccc;border-radius:50%;width:36px;height:36px;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s}
+  #nav button:hover{border-color:#aaa;color:#fff}
+  #slide-counter{min-width:64px;text-align:center;letter-spacing:.1em}
+  .kbd-hint{font-size:14px;opacity:.85;letter-spacing:.08em}
+  .serif{font-family:'PT Serif',Georgia,serif}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .chapter-num{font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.2em;color:var(--accent);font-weight:500}
+  .h2{font-family:'PT Serif',serif;font-weight:700;font-size:76px;line-height:1.08;letter-spacing:-0.005em;color:var(--ink);text-wrap:balance}
+  .slide-header{display:flex;justify-content:space-between;align-items:flex-end;padding-bottom:24px;border-bottom:1px solid var(--rule);margin-bottom:48px}
+  .slide-header .left{display:flex;align-items:baseline;gap:28px}
+  .slide-header .right{font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--muted);letter-spacing:.1em}
+  .footer{position:absolute;left:100px;right:100px;bottom:40px;display:flex;justify-content:space-between;align-items:center;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+  .footer .mark{color:var(--accent);font-weight:500}
+  #deck-inner section.title-slide{background:var(--paper);padding:100px}
+  .title-slide .top{display:flex;justify-content:space-between;align-items:flex-start}
+  .title-slide .badge{display:inline-flex;align-items:center;gap:14px;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .title-slide .meta{text-align:right;font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--muted);letter-spacing:.08em;line-height:1.6}
+  .title-slide .byline{position:absolute;left:100px;right:100px;bottom:100px;display:flex;justify-content:space-between;align-items:flex-end;padding-top:40px;border-top:1px solid var(--rule)}
+  .title-slide .author{font-family:'PT Serif',serif;font-size:32px;font-weight:700}
+  .title-slide .affil{font-size:26px;color:var(--muted);margin-top:6px}
+  .versus{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:36px}
+  .versus-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:60px;width:100%}
+  .versus-card{padding:50px 64px;background:var(--paper);border:1px solid var(--rule);text-align:center}
+  .versus-card .glyph{font-family:'PT Serif',serif;font-size:150px;line-height:1;font-weight:400;color:var(--ink)}
+  .versus-card .label{font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:28px}
+  .versus-op{font-family:'PT Serif',serif;font-style:italic;font-size:80px;color:var(--accent)}
+  .versus-caption{text-align:center;font-family:'PT Serif',serif;font-style:italic;font-size:38px;line-height:1.3;color:var(--ink-soft);max-width:1400px;text-wrap:balance;margin-bottom:60px}
+  .transfer{flex:1;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:60px;max-width:1480px;margin:0 auto;width:100%}
+  .transfer .box{border:1px solid var(--rule);background:var(--paper);padding:60px 44px}
+  .transfer .box h3{font-family:'PT Serif',serif;font-size:44px;line-height:1.15;margin:0 0 24px 0;font-weight:700}
+  .transfer .arrow{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .transfer .arrow .label{font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
+  .transfer-qualities{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:18px;font-family:'PT Serif',serif;font-size:26px;color:var(--ink-soft);font-style:italic;line-height:1.4;text-align:center}
+  #deck-inner section.quote-slide{background:var(--ink);color:#f3efe7}
+  .quote-slide .q-mark{font-family:'PT Serif',serif;font-size:320px;line-height:0.6;color:var(--accent-soft);font-style:italic;margin-bottom:20px;height:120px}
+  .quote-slide blockquote{font-family:'PT Serif',serif;font-style:italic;font-size:54px;line-height:1.25;font-weight:400;margin:0;max-width:1500px;color:#f3efe7;text-wrap:balance}
+  .quote-slide .attrib{margin-top:72px;font-family:'JetBrains Mono',monospace;font-size:26px;letter-spacing:.12em;color:var(--accent-soft);text-transform:uppercase}
+  .sts{flex:1;display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center}
+  .sts .diagram{position:relative;aspect-ratio:1/1;width:100%;max-width:720px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+  .ring{position:absolute;inset:0;border:1px solid var(--rule);border-radius:50%;display:flex;align-items:flex-start;justify-content:center}
+  .ring .tag{transform:translateY(-24px);background:var(--bg);padding:0 18px;font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .ring.r2{inset:12%}.ring.r3{inset:26%}.ring.r4{inset:40%;border-color:var(--accent);border-width:2px}
+  .ring.core{inset:40%;display:flex;align-items:center;justify-content:center;border:none;background:transparent}
+  .lit{flex:1;display:flex;flex-direction:column}
+  .ref-item{display:grid;grid-template-columns:52px 1fr;gap:16px;padding:18px 0}
+  .ref-item .n{font-family:'JetBrains Mono',monospace;font-size:22px;color:var(--accent);letter-spacing:.1em;padding-top:3px}
+  .ref-item .ref-body{font-size:25px;line-height:1.4;color:var(--ink-soft);font-family:'PT Serif',serif;display:block}
+</style>
+</head>
+<body>
+<noscript>Для просмотра презентации включите JavaScript. Без него переключение слайдов недоступно.</noscript>
+<div id="deck-wrap">
+  <div id="deck-inner">
+    <section data-label="Титульный" class="title-slide active">
+      <div class="top">
+        <div class="badge"><span></span></div>
+        <div class="meta"></div>
+      </div>
+      <div style="flex:1;display:flex;align-items:center;">
+        <h1 style="font-family:'PT Serif',serif;font-size:66px;margin:0;max-width:1500px;line-height:1.15">Дискурс конкуренции человека и искусственного интеллекта в формировании доверия при внедрении ИИ в государственное управление</h1>
+      </div>
+      <div class="byline">
+        <div>
+          <div class="author">Нуралиева Нателла Загидовна</div>
+          <div class="affil">Факультет государственного управления МГУ им. М.В. Ломоносова</div>
+        </div>
+      </div>
+      <div class="footer"><span></span><span>01 / 08</span></div>
+    </section>
+
+    <section data-label="Конкуренция">
+      <div class="slide-header"><div class="left"><span class="chapter-num">§ 02</span><span class="eyebrow">Мотив дискурса</span></div><div class="right">Конкуренция</div></div>
+      <h2 class="h2" style="margin:0 0 20px 0;max-width:1600px;font-size:64px">Образ конкуренции между технологией и&nbsp;человеком — заметный мотив дискурса</h2>
+      <div class="versus" style="margin-top:0;gap:36px"><div class="versus-row"><div class="versus-card"><div class="glyph serif">H</div><div class="label">Человек</div></div><div class="versus-op">vs.</div><div class="versus-card"><div class="glyph serif">AI</div><div class="label">Технология</div></div></div><p class="versus-caption">ИИ начинает восприниматься не&nbsp;как инструмент, а&nbsp;как&nbsp;потенциальный субъект принятия решений — тот, кому можно предпочесть человека.</p></div>
+      <div class="footer"><span></span><span>02 / 08</span></div>
+    </section>
+
+    <section data-label="Перенос логики">
+      <div class="slide-header"><div class="left"><span class="chapter-num">§ 03</span><span class="eyebrow">Механизм</span></div><div class="right">Перенос логики</div></div>
+      <h2 class="h2" style="margin:0 0 60px 0;max-width:1700px;font-size:64px">Конкуренция возможна потому, что на&nbsp;ИИ переносится<br>логика межличностного взаимодействия</h2>
+      <div class="transfer"><div class="box"><div class="eyebrow">Ожидания к человеку</div><h3>Межличностное доверие</h3></div><div class="arrow"><span class="label">Перенос</span><svg viewBox="0 0 140 40" fill="none"><path d="M0 20 L124 20" stroke="var(--accent)" stroke-width="2"/><path d="M116 10 L130 20 L116 30" stroke="var(--accent)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="transfer-qualities"><span>Компетентность</span><span>Доброжелательность</span><span>Обоснованность решений</span></div></div><div class="box"><div class="eyebrow" style="color:var(--accent)">Ожидания к ИИ</div><h3>Доверие к технологии</h3></div></div>
+      <div class="footer"><span><span class="mark">—</span> Nass, Steuer &amp; Tauber, 1994 · Madhavan &amp; Wiegmann, 2007</span><span>03 / 08</span></div>
+    </section>
+
+    <section data-label="Цитата" class="quote-slide">
+      <div class="slide-header" style="border-bottom-color:#3a342c;margin-bottom:40px"><div class="left"><span class="chapter-num" style="color:var(--accent-soft)">§ 04</span><span class="eyebrow" style="color:#9b9585">Антропоморфизация усиливается</span></div><div class="right" style="color:#9b9585">Тезис</div></div>
+      <div style="flex:1;display:flex;flex-direction:column;justify-content:center"><div class="q-mark">"</div><blockquote>По мере того как технологии на основе ИИ становятся более человекоподобными, пользователи будут постепенно <b>уделять меньше внимания создателю</b>, стоящему за технологией, и основывать свои суждения на <b>оценке самого ИИ</b>.</blockquote><div class="attrib">Lalot &amp; Bertram, 2025</div></div>
+      <div class="footer"><span></span><span>04 / 08</span></div>
+    </section>
+
+    <section data-label="Границы переноса">
+      <div class="slide-header"><div class="left"><span class="chapter-num">§ 05</span><span class="eyebrow">Ограничения переноса</span></div><div class="right">Функция ≠ роль</div></div>
+      <h2 class="h2" style="margin:0 0 56px 0;max-width:1700px;font-size:60px">ИИ может выполнять отдельные функции поддержки принятия решений, но не исполнять институциональную роль</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:auto auto;gap:0 48px">
+        <div style="border:1px solid var(--rule);border-bottom:none;background:var(--paper);padding:28px 36px 24px"><div style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Медицина</div><p style="margin:0;font-size:27px;line-height:1.5;color:var(--ink-soft)">советовать диагноз, снижать неопределённость, объяснять симптомы</p></div>
+        <div style="border:1px solid var(--rule);border-bottom:none;background:var(--paper);padding:28px 36px 24px"><div style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Право</div><p style="margin:0;font-size:27px;line-height:1.5;color:var(--ink-soft)">объяснить нормы, помочь составить документ, проанализировать прецеденты</p></div>
+        <div style="border:1px solid var(--rule);border-bottom:none;background:var(--paper);padding:28px 36px 24px"><div style="font-family:'JetBrains Mono',monospace;font-size:22px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:16px">Образование</div><p style="margin:0;font-size:27px;line-height:1.5;color:var(--ink-soft)">объяснять тему, подбирать задания, давать обратную связь</p></div>
+        <div style="border:1px solid var(--rule);border-top:2px solid var(--accent);background:var(--bg-deep);padding:24px 36px;display:flex;align-items:center"><p style="margin:0;font-size:27px;line-height:1.5;color:var(--ink)"><b>Врач:</b> лицензия, клиническая ответственность, медицинская этика</p></div>
+        <div style="border:1px solid var(--rule);border-top:2px solid var(--accent);background:var(--bg-deep);padding:24px 36px;display:flex;align-items:center"><p style="margin:0;font-size:27px;line-height:1.5;color:var(--ink)"><b>Юрист:</b> профессиональная ответственность, представление клиента, принадлежность к правовой профессии</p></div>
+        <div style="border:1px solid var(--rule);border-top:2px solid var(--accent);background:var(--bg-deep);padding:24px 36px;display:flex;align-items:center"><p style="margin:0;font-size:27px;line-height:1.5;color:var(--ink)"><b>Учитель:</b> оценивание в рамках института, педагогическая ответственность</p></div>
+      </div>
+      <div class="footer"><span><span class="mark">—</span> Madhavan &amp; Wiegmann, 2007</span><span>05 / 08</span></div>
+    </section>
+
+    <section data-label="Социотехническая система">
+      <div class="slide-header"><div class="left"><span class="chapter-num">§ 06</span><span class="eyebrow">ИИ как социотехническая система</span></div><div class="right">Множество адресатов доверия</div></div>
+      <div class="sts"><div class="diagram"><div class="ring r1"><span class="tag">Регуляторы</span></div><div class="ring r2"><span class="tag">Заказчики и владельцы</span></div><div class="ring r3"><span class="tag">Лидеры мнений</span></div><div class="ring r4"><span class="tag">Разработчики</span></div><div class="ring core"><span style="font-family:'PT Serif',serif;font-weight:700;font-size:40px;text-align:center;color:var(--ink)">ИИ<br><span style="font-size:24px;font-style:italic;font-weight:400;color:var(--muted)">система</span></span></div></div><div><h3 style="font-family:'PT Serif',serif;font-size:44px;margin:0 0 32px 0;font-weight:700;line-height:1.15">Доверие собирается из&nbsp;многих источников.</h3><ul style="list-style:none;padding:0;margin:0"><li style="display:flex;gap:24px;align-items:baseline;padding:20px 0;border-top:none;font-size:28px;line-height:1.4;color:var(--ink-soft)"><span style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:24px;letter-spacing:.14em;min-width:44px">01</span><span>Разработчики — кто и как технологию создал</span></li><li style="display:flex;gap:24px;align-items:baseline;padding:20px 0;border-top:1px solid var(--rule);font-size:28px;line-height:1.4;color:var(--ink-soft)"><span style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:24px;letter-spacing:.14em;min-width:44px">02</span><span>Заказчики и владельцы — чьи интересы она обслуживает</span></li><li style="display:flex;gap:24px;align-items:baseline;padding:20px 0;border-top:1px solid var(--rule);font-size:28px;line-height:1.4;color:var(--ink-soft)"><span style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:24px;letter-spacing:.14em;min-width:44px">03</span><span>Регуляторы — какие правила её ограничивают</span></li><li style="display:flex;gap:24px;align-items:baseline;padding:20px 0;border-top:1px solid var(--rule);font-size:28px;line-height:1.4;color:var(--ink-soft)"><span style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:24px;letter-spacing:.14em;min-width:44px">04</span><span>Лидеры мнений — какие сигналы транслируют</span></li><li style="display:flex;gap:24px;align-items:baseline;padding:20px 0;border-top:1px solid var(--rule);font-size:28px;line-height:1.4;color:var(--ink-soft)"><span style="font-family:'JetBrains Mono',monospace;color:var(--accent);font-size:24px;letter-spacing:.14em;min-width:44px">05</span><span>Другие акторы, соприкасающиеся с системой</span></li></ul></div></div>
+      <div class="footer"><span><span class="mark">—</span> Гарбук, 2024</span><span>06 / 08</span></div>
+    </section>
+
+    <section data-label="Вывод" style="background:var(--bg-deep)">
+      <div class="slide-header"><div class="left"><span class="chapter-num">§ 08</span><span class="eyebrow">Вывод для внедрения в госуправлении</span></div><div class="right">Итог</div></div>
+      <p style="font-family:'PT Serif',serif;font-size:52px;font-weight:700;line-height:1.25;color:var(--ink);margin:0 0 52px 0;max-width:1600px">Межличностный уровень доверия — <span style="color:var(--accent)">лишь один из уровней</span> — и недостаточен для понимания доверия к сложным социотехническим системам</p>
+      <div style="border:2px solid var(--ink);padding:52px 64px;max-width:1600px"><div style="font-family:'JetBrains Mono',monospace;font-size:24px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:36px">Необходимо</div><div style="display:flex;flex-direction:column;gap:32px"><div style="display:flex;gap:32px;align-items:flex-start"><span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--accent);line-height:1.6;min-width:32px;letter-spacing:.1em">01</span><div><span style="font-family:'PT Serif',serif;font-size:34px;font-weight:700;color:var(--ink)">Учитывать дискурс конкуренции.</span><span style="font-size:28px;color:var(--ink-soft);line-height:1.45;display:block;margin-top:8px">Общество осмысляет ИИ через логику сопоставления с человеком — это важно учитывать при анализе условий общественного доверия к ИИ.</span></div></div><div style="display:flex;gap:32px;align-items:flex-start"><span style="font-family:'JetBrains Mono',monospace;font-size:24px;color:var(--accent);line-height:1.6;min-width:32px;letter-spacing:.1em">02</span><div><span style="font-family:'PT Serif',serif;font-size:34px;font-weight:700;color:var(--ink)">Видеть её ограниченность.</span><span style="font-size:28px;color:var(--ink-soft);line-height:1.45;display:block;margin-top:8px">Технологии и эксперты не являются обособленными конкурирующими сущностями. Они встроены в социотехнические и профессиональные системы.</span></div></div></div></div>
+      <div class="footer"><span></span><span>07 / 08</span></div>
+    </section>
+
+    <section data-label="Источники">
+      <div class="slide-header"><div class="left"><span class="chapter-num">§ 09</span><span class="eyebrow">Источники</span></div><div class="right">Литература</div></div>
+      <h2 class="h2" style="margin:0 0 48px 0;font-size:56px">Список литературы</h2>
+      <div class="lit">
+        <div class="ref-item"><div class="n">[1]</div><div class="ref-body"><b>Гарбук С.В.</b> Модель доверия к прикладным системам искусственного интеллекта. <em>Вестник МГУ. Сер. 21.</em> 2024.</div></div>
+        <div class="ref-item"><div class="n">[2]</div><div class="ref-body"><b>Gerlich M.</b> Exploring Motivators for Trust in the Dichotomy of Human–AI Trust Dynamics. <em>Social Sciences.</em> 2024.</div></div>
+        <div class="ref-item"><div class="n">[3]</div><div class="ref-body"><b>Lalot F., Bertram A.-M.</b> When the Bot Walks the Talk. <em>Journal of Experimental Psychology: General.</em> 2025.</div></div>
+        <div class="ref-item"><div class="n">[4]</div><div class="ref-body"><b>Langer M. et al.</b> Trust in Artificial Intelligence. <em>Journal of Business and Psychology.</em> 2023.</div></div>
+        <div class="ref-item"><div class="n">[5]</div><div class="ref-body"><b>Logg J.M. et al.</b> Algorithm Appreciation. <em>OBHDP.</em> 2019.</div></div>
+        <div class="ref-item"><div class="n">[6]</div><div class="ref-body"><b>Madhavan P., Wiegmann D.A.</b> Human–Human and Human–Automation Trust. <em>TIES.</em> 2007.</div></div>
+        <div class="ref-item"><div class="n">[7]</div><div class="ref-body"><b>Nass C., Steuer J., Tauber E.R.</b> Computers Are Social Actors. <em>CHI.</em> 1994.</div></div>
+      </div>
+      <div class="footer"><span></span><span>08 / 08</span></div>
+    </section>
+  </div>
+</div>
+
+<div id="nav">
+  <button id="btn-prev" title="Назад (←)">&#8592;</button>
+  <span id="slide-counter">1 / 8</span>
+  <button id="btn-next" title="Вперёд (→)">&#8594;</button>
+  <span class="kbd-hint">← → Space</span>
+</div>
+
+<script>
+(function(){
+  const inner=document.getElementById('deck-inner');
+  const slides=Array.from(inner.querySelectorAll('section'));
+  const counter=document.getElementById('slide-counter');
+  let cur=0;
+
+  function show(n){
+    slides[cur].classList.remove('active');
+    cur=(n+slides.length)%slides.length;
+    slides[cur].classList.add('active');
+    counter.textContent=(cur+1)+' / '+slides.length;
+  }
+
+  document.getElementById('btn-prev').addEventListener('click',()=>show(cur-1));
+  document.getElementById('btn-next').addEventListener('click',()=>show(cur+1));
+
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();show(cur+1)}
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp') show(cur-1);
+  });
+
+  function resize(){
+    const scale=Math.min(window.innerWidth/1920,window.innerHeight/1080);
+    const tx=(window.innerWidth-1920*scale)/2;
+    const ty=(window.innerHeight-1080*scale)/2;
+    inner.style.transform='translate('+tx+'px,'+ty+'px) scale('+scale+')';
+  }
+
+  window.addEventListener('resize',resize);
+  resize();
+})();
+</script>
+</body>
+</html>
