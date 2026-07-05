@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Natella Nuralieva - LLM Solutions Consultant & Builder</title>
-    <meta name="description" content="LLM-based solutions consultant & builder. I turn business problems into working AI systems and help teams make better decisions about LLM-based AI.">
+    <meta name="description" content="LLM-based solutions consultant & builder. I turn business problems into working AI systems and help teams make better decisions about AI.">
     <meta name="keywords" content="AI consultant, LLM solutions, AI automation, business AI, AI developer, no-code AI, low-code AI">
     <meta name="author" content="Natella Nuralieva">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Natella Nuralieva - LLM Solutions Consultant & Builder">
-    <meta property="og:description" content="I translate business problems into working AI systems and help teams make better decisions about LLM-based AI.">
+    <meta property="og:description" content="I translate business problems into working AI systems and help teams make better decisions about AI.">
     <meta property="og:url" content="https://natella.me">
 
     <link rel="icon" type="image/png" href="favicon.png">
@@ -311,29 +311,64 @@
 
         /* Pricing Cards */
         .pricing-card {
+            display: grid;
+            grid-template-columns: 72px 1fr;
             margin-bottom: 40px;
             padding-bottom: 40px;
             border-bottom: 1px solid #2a2a2a;
         }
 
+        .pricing-card > *:not(.pricing-num) {
+            grid-column: 2;
+        }
+
         .pricing-card:last-child {
-            border-bottom: none;
+            border-bottom: 1px solid #2a2a2a;
             padding-bottom: 40px;
+        }
+
+        /* ghost number marker for the sequence of services */
+        .pricing-num {
+            grid-column: 1;
+            grid-row: 1;
+            font-size: 34px;
+            font-weight: 200;
+            color: #2e2e2e;
+            line-height: 1;
+            letter-spacing: 1px;
+            padding-top: 4px;
+            user-select: none;
+            transition: color 0.4s ease;
+        }
+
+        .pricing-card:hover .pricing-num {
+            color: #4a4a4a;
+        }
+
+        /* header row: title left, price right */
+        .pricing-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            margin-bottom: 22px;
         }
 
         .pricing-title {
             font-size: 30px;
             font-weight: 700;
             color: #ececec;
-            margin-bottom: 8px;
+            margin-bottom: 0;
             letter-spacing: -0.5px;
         }
 
         .pricing-price {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 300;
-            color: #666;
-            margin-bottom: 24px;
+            color: #777;
+            margin-bottom: 0;
+            white-space: nowrap;
         }
 
         .pricing-description {
@@ -345,54 +380,84 @@
         }
 
         .pricing-process {
-            margin-top: 24px;
-            cursor: pointer;
+            margin-top: 26px;
         }
 
         .pricing-process h4 {
-            font-size: 16px;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 400;
             color: #ccc;
             margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.3s ease;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #444;
+            cursor: pointer;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
         .pricing-process h4:hover {
             color: white;
+            border-color: #999;
         }
 
         .pricing-process .process-icon {
-            font-size: 10px;
-            color: #666;
+            width: 7px;
+            height: 7px;
+            border-right: 1px solid #888;
+            border-bottom: 1px solid #888;
+            transform: rotate(45deg) translate(-1px, -1px);
             transition: transform 0.3s ease;
-            display: inline-block;
-            transform: scaleX(1.4);
-            margin-left: 8px;
         }
 
         .pricing-process.expanded .process-icon {
-            transform: scaleX(1.4) rotate(180deg);
+            transform: rotate(-135deg) translate(-2px, -2px);
+        }
+
+        .pricing-process .process-body {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            margin-top: 0;
+            border-left: 1px solid #2a2a2a;
+            padding-left: 22px;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease, margin-top 0.4s ease-out;
+        }
+
+        .pricing-process.expanded .process-body {
+            max-height: 900px;
+            opacity: 1;
+            margin-top: 22px;
+            transition: max-height 0.5s ease-in, opacity 0.4s ease 0.1s, margin-top 0.5s ease-in;
+        }
+
+        .pricing-process h5 {
+            font-size: 12px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            margin-top: 22px;
+            margin-bottom: 12px;
+        }
+
+        .pricing-process .process-body > h5:first-child,
+        .pricing-process .process-body > p:first-child {
+            margin-top: 18px;
+        }
+
+        .pricing-process .process-body > p:first-child {
+            margin-top: 0;
         }
 
         .pricing-process ul {
             list-style: none;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            margin-top: 16px;
-        }
-
-        .pricing-process.expanded ul {
-            max-height: 500px;
-            transition: max-height 0.4s ease-in;
         }
 
         .pricing-process li {
             font-size: 15px;
-            color: #999;
+            color: #b3b3b3;
             line-height: 1.5;
             margin-bottom: 10px;
             font-weight: 300;
@@ -407,31 +472,36 @@
             color: #666;
         }
 
+        .pricing-process .process-result {
+            font-size: 15px;
+            color: #b3b3b3;
+            line-height: 1.5;
+            font-weight: 300;
+            margin-top: 4px;
+            margin-bottom: 18px;
+        }
+
+        .pricing-process .process-closer {
+            font-size: 15px;
+            color: #b3b3b3;
+            line-height: 1.5;
+            font-weight: 300;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
         .pricing-process strong {
             color: #ccc;
             font-weight: 500;
         }
 
-        /* Tech Grid */
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px 40px;
-            margin-top: 40px;
-        }
-
-        .tech-item {
-            font-size: 15px;
-            color: #999;
+        .pricing-note {
+            font-size: 14px;
+            color: #777;
+            line-height: 1.5;
             font-weight: 300;
-            transition: color 0.3s ease;
-            cursor: default;
-            padding-bottom: 8px;
-            border-bottom: 1px solid #333;
-        }
-
-        .tech-item:hover {
-            color: #fff;
+            margin-top: 18px;
+            font-style: italic;
         }
 
         .tech-note {
@@ -441,6 +511,129 @@
             font-weight: 300;
             line-height: 1.5;
             max-width: 700px;
+        }
+
+        /* ===== Stack explorer ===== */
+        .stack-explorer {
+            max-width: 880px;
+            display: grid;
+            grid-template-columns: 255px 1fr;
+            column-gap: 64px;
+        }
+
+        .stack-eyebrow {
+            grid-column: 1 / -1;
+            font-size: 12px;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+            margin-bottom: 34px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        /* Cases (vertical list, in the language of the left nav) */
+        .stack-cases {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .stack-case {
+            appearance: none;
+            background: none;
+            border: none;
+            font-family: inherit;
+            text-align: left;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+            font-size: 15px;
+            font-weight: 300;
+            color: #888;
+            padding: 11px 0;
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .stack-case .case-num {
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #4a4a4a;
+            transition: color 0.3s ease;
+        }
+
+        .stack-case:hover {
+            color: #ccc;
+        }
+
+        .stack-case.active {
+            color: #fff;
+        }
+
+        .stack-case.active .case-num {
+            color: #999;
+        }
+
+        /* thin progress line under the active case during the autoplay demo */
+        .case-progress {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background: #242424;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .case-progress::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+            background: #666;
+        }
+
+        .stack-case.active.auto .case-progress {
+            opacity: 1;
+        }
+
+        .stack-case.active.auto .case-progress::after {
+            animation: caseFill 3s linear forwards;
+        }
+
+        @keyframes caseFill {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Tool cloud (borderless) */
+        .stack-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 16px 26px;
+        }
+
+        .stack-tag {
+            font-size: 15px;
+            font-weight: 300;
+            color: #999;
+            transition: color 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.45s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .stack-cloud.filtering .stack-tag {
+            color: #4a4a4a;
+            opacity: 0.4;
+        }
+
+        .stack-cloud.filtering .stack-tag.match {
+            color: #fff;
+            opacity: 1;
         }
 
         /* Buttons */
@@ -694,14 +887,45 @@
                 font-size: 24px;
             }
 
-            .tech-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 40px 30px;
+            .pricing-card {
+                grid-template-columns: 46px 1fr;
             }
 
-            .tech-item {
+            .pricing-num {
+                font-size: 24px;
+                padding-top: 3px;
+            }
+
+            .pricing-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                margin-bottom: 20px;
+            }
+
+            .pricing-price {
+                white-space: normal;
+            }
+
+            .stack-explorer {
+                grid-template-columns: 1fr;
+            }
+
+            .stack-eyebrow {
+                margin-bottom: 24px;
+            }
+
+            .stack-cases {
+                margin-bottom: 36px;
+            }
+
+            .stack-case {
                 font-size: 14px;
-                padding-bottom: 6px;
+                padding: 10px 0;
+            }
+
+            .stack-tag {
+                font-size: 14px;
             }
         }
 
@@ -759,7 +983,7 @@
             <div class="profile-section">
                 <h1>Natella<br>Nuralieva</h1>
                 <div class="subtitle">
-                    LLM-based solutions consultant & builder. I translate business problems into working AI systems and help teams make better decisions about LLM-based AI — before they overbuild.
+                    LLM-based solutions consultant & builder. I translate business problems into working AI systems and help teams make better decisions about AI — before they overbuild.
                 </div>
             </div>
 
@@ -815,7 +1039,7 @@
 
                     <h3>Business experience</h3>
                     <ul>
-                        <li><strong style="color: #ccc;">10+ years</strong> working with businesses, including over 5 years in corporate roles General Electric</li>
+                        <li><strong style="color: #ccc;">10+ years</strong> working with businesses, including 5 years at <strong style="color: #ccc;">General Electric</strong> and further corporate experience</li>
                         <li>Experience in leading <strong style="color: #ccc;">market research, internal consulting, and product work</strong></li>
                         <li>Hands-on AI development informed by product intuition and real-world business experience</li>
                     </ul>
@@ -952,102 +1176,101 @@
 
                 <p class="tech-note" style="margin-bottom: 60px;">I work primarily with LLM-based systems and generative AI — from ChatGPT-level tools to custom workflows and automations. My focus is on tasks and processes that can realistically be improved with AI, not on "AI for the sake of AI".</p>
 
-                <div class="project-card" onclick="toggleProject(this)">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">Expert Review</h3>
-                            <div class="pricing-price" style="margin-bottom: 8px; margin-top: 8px;">$1,000 • 1–5 business days</div>
-                            <p class="pricing-description" style="font-size: 15px; color: #b3b3b3; margin-bottom: 0;">I help you understand where LLMs can support your work — and where they can't.</p>
-                        </div>
-                        <span class="expand-icon">▼</span>
+                <div class="pricing-card">
+                    <div class="pricing-num">01</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">Expert Review</h3>
+                        <div class="pricing-price">$1,000 • 1–5 business days</div>
                     </div>
-                    <div class="project-content">
-                        <div style="margin-top: 24px;">
-                            <p class="project-description">
-                                This is a consultation with preparation: I review your context and cases in advance, so our discussion is focused on decisions, not explanations.
-                            </p>
+                    <p class="pricing-description">I help you understand where LLMs can support your work — and where they can't.</p>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Details <span class="process-icon"></span></h4>
+                        <div class="process-body">
+                            <p class="process-result">This is a consultation with preparation: I review your context and cases in advance, so our discussion is focused on decisions, not explanations.</p>
+                            <h5>Typical process</h5>
+                            <ul>
+                                <li><strong>Prep:</strong> You share the cases, ideas, or tasks you're considering. This can be one specific problem or several use cases you want to sanity-check.</li>
+                                <li><strong>Discussion:</strong> 1–2 hours of calls where we go through your cases and explore possible approaches — from simple tools to more advanced setups.</li>
+                                <li><strong>Result:</strong> A short written summary with recommendations: what makes sense, what doesn't, and what's better postponed or skipped.</li>
+                            </ul>
+                            <p class="process-closer">A good starting point for an AI task audit — whether for business processes or personal workflows.</p>
+                        </div>
+                    </div>
+                    <p class="pricing-note">If we continue to a deeper engagement within 30 days, $500 of the Expert Review fee counts toward it.</p>
+                </div>
 
-                            <div style="margin-top: 24px;">
-                                <h4 style="font-size: 16px; font-weight: 500; color: #ccc; margin-bottom: 12px;">Typical process</h4>
-                                <ul style="list-style: none; margin: 0; padding: 0;">
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Prep:</strong> You share the cases, ideas, or tasks you're considering. This can be one specific problem or several use cases you want to sanity-check.</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Discussion:</strong> 1–2 hours of calls where we go through your cases and explore possible approaches — from simple tools to more advanced setups.</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Result:</strong> A short written summary with recommendations: what makes sense, what doesn't, and what's better postponed or skipped.</li>
-                                </ul>
-                            </div>
-
-                            <p class="project-description" style="margin-top: 20px; font-style: italic;">
-                                A good starting point for an AI task audit — whether for business processes or personal workflows.
-                            </p>
+                <div class="pricing-card">
+                    <div class="pricing-num">02</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">Use Case Analysis</h3>
+                        <div class="pricing-price">Starting at $3,000 • 1–2 weeks</div>
+                    </div>
+                    <p class="pricing-description">A deeper analysis of selected AI or LLM use cases, without building a production system.</p>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Details <span class="process-icon"></span></h4>
+                        <div class="process-body">
+                            <p class="process-result">The goal here is to think through a case properly and explain how it may work in practice — including constraints, risks, and trade-offs.</p>
+                            <h5>Typical process</h5>
+                            <ul>
+                                <li>We define the scope together (one complex case or several simpler ones)</li>
+                                <li>I explore the logic of the solution, test ideas conceptually, and run small experiments when useful (for example, prompt tests or simplified workflows)</li>
+                                <li>2–3 calls to discuss findings along the way</li>
+                                <li><strong>Result:</strong> a solution memo covering: how the solution could work; key assumptions and risks; limitations and trade-offs; alternative approaches worth considering</li>
+                            </ul>
+                            <p class="process-closer">A good fit if a single consultation isn't enough and you want clarity before deciding whether to build.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" onclick="toggleProject(this)">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">Use Case Analysis</h3>
-                            <div class="pricing-price" style="margin-bottom: 8px; margin-top: 8px;">Starting at $3,000 • 1–2 weeks</div>
-                            <p class="pricing-description" style="font-size: 15px; color: #b3b3b3; margin-bottom: 0;">A deeper analysis of selected AI or LLM use cases, without building a production system.</p>
-                        </div>
-                        <span class="expand-icon">▼</span>
+                <div class="pricing-card">
+                    <div class="pricing-num">03</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">Validation Sprint</h3>
+                        <div class="pricing-price">Starting at $7,500 • 3–8 weeks</div>
                     </div>
-                    <div class="project-content">
-                        <div style="margin-top: 24px;">
-                            <p class="project-description">
-                                The goal here is to think through a case properly and explain how it may work in practice — including constraints, risks, and trade-offs.
-                            </p>
-
-                            <div style="margin-top: 24px;">
-                                <h4 style="font-size: 16px; font-weight: 500; color: #ccc; margin-bottom: 12px;">Typical process</h4>
-                                <ul style="list-style: none; margin: 0; padding: 0;">
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>We define the scope together (one complex case or several simpler ones)</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>I explore the logic of the solution, test ideas conceptually, and run small experiments when useful (for example, prompt tests or simplified workflows)</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>2–3 calls to discuss findings along the way</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Result:</strong> a structured written explanation covering: how the solution could work; key assumptions and risks; limitations and trade-offs; alternative approaches worth considering</li>
-                                </ul>
-                            </div>
-
-                            <p class="project-description" style="margin-top: 20px; font-style: italic;">
-                                A good fit if a single consultation isn't enough and you want clarity before deciding whether to build.
-                            </p>
+                    <p class="pricing-description">Hands-on validation of a selected AI or LLM use case through a working prototype or automation flow.</p>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Details <span class="process-icon"></span></h4>
+                        <div class="process-body">
+                            <p class="process-result">At this stage, we move from reasoning to practice and see how things actually perform with real or semi-real inputs.</p>
+                            <h5>Typical process</h5>
+                            <ul>
+                                <li>We agree on the validation goal and scope</li>
+                                <li>I build a prototype or automation (using low-code tools and LLM APIs)</li>
+                                <li>We test, iterate if needed, and observe limitations</li>
+                                <li><strong>Result:</strong> a clear outcome — what works, what doesn't, and why</li>
+                            </ul>
+                            <p class="process-closer">The deliverable can be a working prototype, a demo automation, or a solid understanding that the idea isn't worth scaling further. Next steps (full development, long-term support, or maintenance) are discussed separately and depend on the case.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" onclick="toggleProject(this)">
-                    <div class="project-header">
-                        <div>
-                            <h3 class="project-title">Validation Sprint</h3>
-                            <div class="pricing-price" style="margin-bottom: 8px; margin-top: 8px;">Starting at $7,500 • 3–8 weeks</div>
-                            <p class="pricing-description" style="font-size: 15px; color: #b3b3b3; margin-bottom: 0;">Hands-on validation of a selected AI or LLM use case through a working prototype or automation flow.</p>
-                        </div>
-                        <span class="expand-icon">▼</span>
+                <div class="pricing-card">
+                    <div class="pricing-num">04</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">Build & Integration</h3>
+                        <div class="pricing-price">Custom scope • from $15,000</div>
                     </div>
-                    <div class="project-content">
-                        <div style="margin-top: 24px;">
-                            <p class="project-description">
-                                At this stage, we move from reasoning to practice and see how things actually perform with real or semi-real inputs.
-                            </p>
-
-                            <div style="margin-top: 24px;">
-                                <h4 style="font-size: 16px; font-weight: 500; color: #ccc; margin-bottom: 12px;">Typical process</h4>
-                                <ul style="list-style: none; margin: 0; padding: 0;">
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>We agree on the validation goal and scope</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>I build a prototype or automation (using low-code tools and LLM APIs)</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span>We test, iterate if needed, and observe limitations</li>
-                                    <li style="font-size: 15px; color: #b3b3b3; line-height: 1.5; margin-bottom: 10px; padding-left: 20px; position: relative; font-weight: 300;"><span style="position: absolute; left: 0; color: #666;">•</span><strong style="color: #ccc; font-weight: 500;">Result:</strong> a clear outcome — what works, what doesn't, and why</li>
-                                </ul>
-                            </div>
-
-                            <p class="project-description" style="margin-top: 20px; font-style: italic;">
-                                The deliverable can be a working prototype, a demo automation, or a solid understanding that the idea isn't worth scaling further. Next steps (full development, long-term support, or maintenance) are discussed separately and depend on the case.
-                            </p>
+                    <p class="pricing-description">Full development of the validated solution — built for regular use, not just a demo.</p>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Details <span class="process-icon"></span></h4>
+                        <div class="process-body">
+                            <p class="process-result">At this stage the use case is already proven, and the goal is a system your team can rely on: stable, integrated with your tools, and ready for day-to-day work.</p>
+                            <h5>Typical process</h5>
+                            <ul>
+                                <li><strong>Scope:</strong> we define what "done" means — features, integrations, data, and who will use the system</li>
+                                <li>I build the solution: LLM workflows, prompts and agents, integrations with your databases, CRM, messengers, or external APIs</li>
+                                <li>We test on real data and iterate until the system holds up in actual use</li>
+                                <li><strong>Result:</strong> a working AI system your team uses regularly — with documentation and a handover session</li>
+                            </ul>
+                            <p class="process-closer">Ongoing support and further development are available as a separate arrangement — some clients need it, many don't.</p>
                         </div>
                     </div>
                 </div>
 
-                <div style="margin-top: 30px;">
+                <!-- CTA -->
+                <div class="cta-section">
+                    <h3>Have a task, a pain point, or an idea?</h3>
                     <a href="https://cal.com/natella-nuralieva/30min" target="_blank" class="text-button">
                         Book a call
                     </a>
@@ -1057,17 +1280,51 @@
             <!-- Tech Section -->
             <div id="tech" class="section">
                 <div class="section-header">Stack</div>
-                <p class="tech-note">I work with low-code platforms. This approach lets me focus on the product and business problem — not technical gymnastics — and ship faster than traditional development. The stack is always chosen based on the task, not the other way around.</p>
+                <p class="tech-note" style="margin-bottom: 56px;">I work with low-code platforms. This approach lets me focus on the product and business problem — not technical gymnastics — and ship faster than traditional development. The stack is always chosen based on the task, not the other way around.</p>
 
-                <div class="tech-grid">
-                    <div class="tech-item">Make</div>
-                    <div class="tech-item">Bubble</div>
-                    <div class="tech-item">NocoDB</div>
-                    <div class="tech-item">Airtable</div>
-                    <div class="tech-item">n8n</div>
-                    <div class="tech-item">OpenAI API</div>
-                    <div class="tech-item">Anthropic API</div>
-                    <div class="tech-item">Gemini API</div>
+                <div class="stack-explorer">
+                    <div class="stack-eyebrow">Pick a use case — see the stack</div>
+                    <div class="stack-cases" id="stackCases">
+                        <button class="stack-case" data-case="Telegram bot" data-tools="Telegram Bot API|OpenAI API|n8n|NocoDB"><span class="case-num">01</span><span class="case-name">Telegram bot</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="CRM integration" data-tools="CRM APIs|REST API|Webhooks|n8n|NocoDB"><span class="case-num">02</span><span class="case-name">CRM integration</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Agentic workflow" data-tools="OpenClaw|Hermes Agent|Codex|Agent skills & instructions|cron job"><span class="case-num">03</span><span class="case-name">Agentic workflow</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Document processing" data-tools="Gemini API|Structured outputs|Make"><span class="case-num">04</span><span class="case-name">Document processing</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Analytics pipeline" data-tools="Gemini API|n8n|Context engineering|Hermes Agent|Agent skills & instructions"><span class="case-num">05</span><span class="case-name">Analytics pipeline</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Personal automation" data-tools="Claude Cowork|MCP|Google APIs"><span class="case-num">06</span><span class="case-name">Personal automation</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="End-to-end build" data-tools="Supabase|GitHub|Render|REST API"><span class="case-num">07</span><span class="case-name">End-to-end build</span><span class="case-progress"></span></button>
+                    </div>
+
+                    <div class="stack-cloud" id="stackCloud">
+                        <span class="stack-tag" data-tool="OpenAI API">OpenAI API</span>
+                        <span class="stack-tag" data-tool="Anthropic API">Anthropic API</span>
+                        <span class="stack-tag" data-tool="Gemini API">Gemini API</span>
+                        <span class="stack-tag" data-tool="Context engineering">Context engineering</span>
+                        <span class="stack-tag" data-tool="LLM workflows & prompts">LLM workflows & prompts</span>
+                        <span class="stack-tag" data-tool="Agent skills & instructions">Agent skills & instructions</span>
+                        <span class="stack-tag" data-tool="RAG">RAG</span>
+                        <span class="stack-tag" data-tool="Structured outputs">Structured outputs</span>
+                        <span class="stack-tag" data-tool="Evaluation">Evaluation</span>
+                        <span class="stack-tag" data-tool="OpenClaw">OpenClaw</span>
+                        <span class="stack-tag" data-tool="Hermes Agent">Hermes Agent</span>
+                        <span class="stack-tag" data-tool="Codex">Codex</span>
+                        <span class="stack-tag" data-tool="Claude Code">Claude Code</span>
+                        <span class="stack-tag" data-tool="Claude Cowork">Claude Cowork</span>
+                        <span class="stack-tag" data-tool="MCP">MCP</span>
+                        <span class="stack-tag" data-tool="cron job">cron job</span>
+                        <span class="stack-tag" data-tool="Make">Make</span>
+                        <span class="stack-tag" data-tool="n8n">n8n</span>
+                        <span class="stack-tag" data-tool="NocoDB">NocoDB</span>
+                        <span class="stack-tag" data-tool="Supabase">Supabase</span>
+                        <span class="stack-tag" data-tool="PostgreSQL">PostgreSQL</span>
+                        <span class="stack-tag" data-tool="S3 / file storage">S3 / file storage</span>
+                        <span class="stack-tag" data-tool="GitHub">GitHub</span>
+                        <span class="stack-tag" data-tool="Render">Render</span>
+                        <span class="stack-tag" data-tool="CRM APIs">CRM APIs</span>
+                        <span class="stack-tag" data-tool="Telegram Bot API">Telegram Bot API</span>
+                        <span class="stack-tag" data-tool="Google APIs">Google APIs</span>
+                        <span class="stack-tag" data-tool="Webhooks">Webhooks</span>
+                        <span class="stack-tag" data-tool="REST API">REST API</span>
+                    </div>
                 </div>
 
                 <div class="cta-section">
@@ -1100,6 +1357,11 @@
 
                 // Show selected section
                 document.getElementById(sectionId).classList.add('active');
+            }
+
+            // Kick off the stack demo when its section opens
+            if (sectionId === 'tech') {
+                window.dispatchEvent(new Event('stack:open'));
             }
 
             // Remove active class from all nav items
@@ -1213,6 +1475,79 @@
                 document.getElementById('rightPanel').classList.remove('with-nav');
             }
         });
+
+        // ===== Stack explorer =====
+        (function () {
+            const casesEl = document.getElementById('stackCases');
+            if (!casesEl) return;
+            const cloud = document.getElementById('stackCloud');
+            const tags = Array.from(cloud.querySelectorAll('.stack-tag'));
+            const btns = Array.from(casesEl.querySelectorAll('.stack-case'));
+            const reduce = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            let auto = false, idx = 0, timer = null, started = false;
+
+            function apply(i, isAuto) {
+                const tools = btns[i].dataset.tools.split('|');
+                const set = new Set(tools);
+                btns.forEach((b, j) => {
+                    b.classList.toggle('active', j === i);
+                    b.classList.toggle('auto', !!isAuto && j === i);
+                });
+                cloud.classList.add('filtering');
+                tags.forEach(t => t.classList.toggle('match', set.has(t.dataset.tool)));
+            }
+
+            function tick() {
+                apply(idx, true);
+                idx = (idx + 1) % btns.length;
+                timer = setTimeout(tick, 3000);
+            }
+
+            function stopAuto() {
+                if (!auto) return;
+                auto = false;
+                clearTimeout(timer);
+                btns.forEach(b => b.classList.remove('auto'));
+            }
+
+            // Manual interaction
+            casesEl.addEventListener('click', function (e) {
+                const btn = e.target.closest('.stack-case');
+                if (!btn) return;
+                stopAuto();
+                apply(btns.indexOf(btn), false);
+            });
+            casesEl.addEventListener('mouseenter', stopAuto);
+            cloud.addEventListener('mouseenter', stopAuto);
+
+            // Start the autoplay demo when the Stack section is opened
+            function startDemo() {
+                if (started) return;
+                started = true;
+                if (reduce) { apply(0, false); return; }
+                auto = true;
+                idx = 0;
+                tick();
+            }
+
+            // Hook into nav: open of Tech section triggers demo
+            window.addEventListener('stack:open', startDemo);
+
+            // If section is already visible on load (e.g. deep link), observe it
+            const techSection = document.getElementById('tech');
+            if (techSection && 'IntersectionObserver' in window) {
+                const io = new IntersectionObserver(function (entries) {
+                    entries.forEach(en => {
+                        if (en.isIntersecting && techSection.classList.contains('active')) {
+                            startDemo();
+                        }
+                    });
+                }, { threshold: 0.2 });
+                io.observe(techSection);
+            }
+        })();
     </script>
 </body>
 </html>
