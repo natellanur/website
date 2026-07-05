@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Нателла Нуралиева - консультант и разработчик AI-решений</title>
+    <title>Нателла Нуралиева — консультант и разработчик AI-решений</title>
     <meta name="description" content="AI-решения для бизнеса: консультации, индивидуальное сопровождение, автоматизация процессов и разработка под задачу. Помогаю выбрать сценарии, проверить их на практике и внедрить без лишнего хайпа.">
     <meta name="keywords" content="AI-консультант, внедрение AI, LLM-решения, AI-автоматизация, автоматизация бизнес-процессов, разработка AI-решений, консультация по нейросетям, no-code, low-code">
     <meta name="author" content="Нателла Нуралиева">
- 
+
     <!-- Open Graph / Social Media -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Нателла Нуралиева — консультант и разработчик AI-решений">
     <meta property="og:description" content="Перевожу бизнес-задачи в работающие AI-решения: консультации, сопровождение, автоматизация и разработка.">
     <meta property="og:url" content="https://natella.me">
     <meta property="og:locale" content="ru_RU">
- 
+
     <link rel="icon" type="image/png" href="favicon.png">
+
     <style>
         * {
             margin: 0;
@@ -311,10 +312,23 @@
 
         /* ===== Work Formats: approach (quote) ===== */
         .formats-approach {
-            max-width: 680px;
+            max-width: 750px;
             margin: 0 0 64px;
-            padding-left: 28px;
-            border-left: 2px solid #444;
+            padding-left: 72px;
+            position: relative;
+        }
+
+        .formats-approach::before {
+            content: "\201C";
+            position: absolute;
+            left: 0;
+            top: -14px;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: 76px;
+            font-weight: 400;
+            line-height: 1;
+            color: #303030;
+            user-select: none;
         }
 
         .formats-approach p {
@@ -322,7 +336,6 @@
             color: #aaa;
             line-height: 1.7;
             font-weight: 300;
-            font-style: italic;
             margin-bottom: 16px;
         }
 
@@ -987,8 +1000,13 @@
             }
 
             .formats-approach {
-                padding-left: 20px;
+                padding-left: 46px;
                 margin-bottom: 48px;
+            }
+
+            .formats-approach::before {
+                font-size: 52px;
+                top: -9px;
             }
 
             .formats-approach p {
