@@ -334,9 +334,15 @@
 
         /* Pricing Cards */
         .pricing-card {
+            display: grid;
+            grid-template-columns: 72px 1fr;
             margin-bottom: 40px;
             padding-bottom: 40px;
             border-bottom: 1px solid #2a2a2a;
+        }
+
+        .pricing-card > *:not(.pricing-num) {
+            grid-column: 2;
         }
 
         .pricing-card:last-child {
@@ -344,28 +350,48 @@
             padding-bottom: 40px;
         }
 
-        /* number marker for the sequence of formats */
-        .pricing-index {
-            font-size: 12px;
-            color: #555;
-            font-weight: 300;
+        /* ghost number marker for the sequence of formats */
+        .pricing-num {
+            grid-column: 1;
+            grid-row: 1;
+            font-size: 34px;
+            font-weight: 200;
+            color: #2e2e2e;
+            line-height: 1;
             letter-spacing: 1px;
-            margin-bottom: 10px;
+            padding-top: 4px;
+            user-select: none;
+            transition: color 0.4s ease;
+        }
+
+        .pricing-card:hover .pricing-num {
+            color: #4a4a4a;
+        }
+
+        /* header row: title left, price right */
+        .pricing-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            margin-bottom: 22px;
         }
 
         .pricing-title {
             font-size: 30px;
             font-weight: 700;
             color: white;
-            margin-bottom: 8px;
+            margin-bottom: 0;
             letter-spacing: -0.5px;
         }
 
         .pricing-price {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 300;
-            color: #666;
-            margin-bottom: 24px;
+            color: #777;
+            margin-bottom: 0;
+            white-space: nowrap;
         }
 
         .pricing-description {
@@ -404,47 +430,56 @@
         }
 
         .pricing-process {
-            margin-top: 24px;
-            cursor: pointer;
+            margin-top: 26px;
         }
 
         .pricing-process h4 {
-            font-size: 16px;
-            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 400;
             color: #ccc;
             margin-bottom: 0;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: all 0.3s ease;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #444;
+            cursor: pointer;
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
         .pricing-process h4:hover {
             color: white;
+            border-color: #999;
         }
 
         .pricing-process .process-icon {
-            font-size: 10px;
-            color: #666;
+            width: 7px;
+            height: 7px;
+            border-right: 1px solid #888;
+            border-bottom: 1px solid #888;
+            transform: rotate(45deg) translate(-1px, -1px);
             transition: transform 0.3s ease;
-            display: inline-block;
-            transform: scaleX(1.4);
-            margin-left: 8px;
         }
 
         .pricing-process.expanded .process-icon {
-            transform: scaleX(1.4) rotate(180deg);
+            transform: rotate(-135deg) translate(-2px, -2px);
         }
 
         .pricing-process .process-body {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.4s ease-out;
+            opacity: 0;
+            margin-top: 0;
+            border-left: 1px solid #2a2a2a;
+            padding-left: 22px;
+            transition: max-height 0.4s ease-out, opacity 0.3s ease, margin-top 0.4s ease-out;
         }
 
         .pricing-process.expanded .process-body {
             max-height: 900px;
-            transition: max-height 0.5s ease-in;
+            opacity: 1;
+            margin-top: 22px;
+            transition: max-height 0.5s ease-in, opacity 0.4s ease 0.1s, margin-top 0.5s ease-in;
         }
 
         .pricing-process h5 {
@@ -543,97 +578,127 @@
             margin-bottom: 0;
         }
 
-        /* Explorer layout */
+        /* Explorer layout: cases left, tool cloud right */
         .stack-explorer {
-            max-width: 760px;
+            max-width: 880px;
+            display: grid;
+            grid-template-columns: 255px 1fr;
+            column-gap: 64px;
         }
 
         .stack-eyebrow {
+            grid-column: 1 / -1;
             font-size: 12px;
             color: #777;
             text-transform: uppercase;
             letter-spacing: 1.5px;
             font-weight: 500;
-            margin-bottom: 22px;
+            margin-bottom: 34px;
             padding-bottom: 14px;
             border-bottom: 1px solid #2a2a2a;
         }
 
-        /* Cases (top row of buttons) */
+        /* Cases (vertical list, in the language of the left nav) */
         .stack-cases {
             display: flex;
-            flex-wrap: wrap;
-            gap: 9px 10px;
-            margin-bottom: 40px;
+            flex-direction: column;
+            align-items: stretch;
         }
 
         .stack-case {
             appearance: none;
             background: none;
+            border: none;
             font-family: inherit;
+            text-align: left;
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
             font-size: 15px;
             font-weight: 300;
-            color: #999;
-            padding: 8px 17px;
-            border: 1px solid #333;
-            border-radius: 999px;
+            color: #888;
+            padding: 11px 0;
             cursor: pointer;
-            transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .stack-case .case-num {
+            font-size: 12px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #4a4a4a;
+            transition: color 0.3s ease;
         }
 
         .stack-case:hover {
             color: #ccc;
-            border-color: #555;
         }
 
         .stack-case.active {
-            color: #111;
-            background: #fff;
-            border-color: #fff;
-            font-weight: 500;
+            color: #fff;
+        }
+
+        .stack-case.active .case-num {
+            color: #999;
+        }
+
+        /* thin progress line under the active case during the autoplay demo */
+        .case-progress {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 1px;
+            background: #242424;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .case-progress::after {
+            content: "";
+            display: block;
+            width: 0;
+            height: 1px;
+            background: #666;
+        }
+
+        .stack-case.active.auto .case-progress {
+            opacity: 1;
+        }
+
+        .stack-case.active.auto .case-progress::after {
+            animation: caseFill 3s linear forwards;
+        }
+
+        @keyframes caseFill {
+            from { width: 0; }
+            to { width: 100%; }
         }
 
         /* Tool cloud (borderless) */
         .stack-cloud {
             display: flex;
             flex-wrap: wrap;
-            gap: 14px 26px;
+            align-content: flex-start;
+            gap: 16px 26px;
         }
 
         .stack-tag {
             font-size: 16px;
             font-weight: 300;
             color: #999;
-            position: relative;
-            transition: color 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.45s cubic-bezier(0.4,0,0.2,1), font-weight 0.45s ease;
+            transition: color 0.45s cubic-bezier(0.4,0,0.2,1), opacity 0.45s cubic-bezier(0.4,0,0.2,1);
         }
 
         .stack-cloud.filtering .stack-tag {
-            color: #555;
-            opacity: 0.55;
+            color: #4a4a4a;
+            opacity: 0.4;
         }
 
         .stack-cloud.filtering .stack-tag.match {
             color: #fff;
             opacity: 1;
-            font-weight: 500;
-        }
-
-        .stack-tag.match::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: -4px;
-            height: 1px;
-            background: #fff;
-            transform: scaleX(0);
-            transform-origin: left center;
-            transition: transform 0.45s cubic-bezier(0.4,0,0.2,1);
-        }
-
-        .stack-cloud.filtering .stack-tag.match::after {
-            transform: scaleX(1);
         }
 
         /* Buttons */
@@ -924,13 +989,41 @@
                 font-size: 24px;
             }
 
+            .pricing-card {
+                grid-template-columns: 46px 1fr;
+            }
+
+            .pricing-num {
+                font-size: 24px;
+                padding-top: 3px;
+            }
+
+            .pricing-head {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 4px;
+                margin-bottom: 20px;
+            }
+
             .stack-intro {
                 margin-bottom: 40px;
             }
 
+            .stack-explorer {
+                grid-template-columns: 1fr;
+            }
+
+            .stack-eyebrow {
+                margin-bottom: 24px;
+            }
+
+            .stack-cases {
+                margin-bottom: 36px;
+            }
+
             .stack-case {
                 font-size: 14px;
-                padding: 7px 14px;
+                padding: 10px 0;
             }
 
             .stack-tag {
@@ -1200,14 +1293,16 @@
                 <div class="block-eyebrow">Форматы работы</div>
 
                 <div class="pricing-card">
-                    <div class="pricing-index">01</div>
-                    <h3 class="pricing-title">Консультация</h3>
-                    <div class="pricing-price">25 000 ₽</div>
+                    <div class="pricing-num">01</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">Консультация</h3>
+                        <div class="pricing-price">25 000 ₽</div>
+                    </div>
                     <p class="pricing-description">
                         Формат для тех, у кого есть конкретная задача или 2–3 небольших задачи, и хочется понять, как их можно решать с помощью AI. Если задача сложная, за консультацию мы подробно разбираем один сценарий. Если задач несколько и они проще, можно пройтись по нескольким и понять, где есть смысл двигаться дальше.
                     </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Подробнее <span class="process-icon">▼</span></h4>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Подробнее <span class="process-icon"></span></h4>
                         <div class="process-body">
                             <h5>Подходит, если вы хотите</h5>
                             <ul>
@@ -1227,9 +1322,11 @@
                 </div>
 
                 <div class="pricing-card">
-                    <div class="pricing-index">02</div>
-                    <h3 class="pricing-title">Индивидуальное AI-сопровождение</h3>
-                    <div class="pricing-price">от 45 000 ₽ / месяц</div>
+                    <div class="pricing-num">02</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">Индивидуальное AI-сопровождение</h3>
+                        <div class="pricing-price">от 45 000 ₽ / месяц</div>
+                    </div>
                     <p class="pricing-description">
                         Формат для тех, кто хочет постепенно встроить AI в свою работу, но не хочет разбираться во всём в одиночку. Мы работаем с вашими реальными задачами: документами, исследованиями, аналитикой, контентом, планированием, подготовкой материалов, обработкой информации и внутренними процессами. Я помогаю разложить задачи, подобрать инструменты, настроить рабочие сценарии и проверить, что действительно приживается в работе.
                     </p>
@@ -1243,8 +1340,8 @@
                             <div class="tier-note">Еженедельные встречи и более плотное сопровождение. Подходит, если хочется двигаться быстрее и меньше разбираться в инструментах самостоятельно.</div>
                         </div>
                     </div>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Подробнее <span class="process-icon">▼</span></h4>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Подробнее <span class="process-icon"></span></h4>
                         <div class="process-body">
                             <h5>Кому подходит</h5>
                             <ul>
@@ -1262,14 +1359,16 @@
                 </div>
 
                 <div class="pricing-card">
-                    <div class="pricing-index">03</div>
-                    <h3 class="pricing-title">AI-автоматизация под задачу</h3>
-                    <div class="pricing-price">от 250 000 ₽</div>
+                    <div class="pricing-num">03</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">AI-автоматизация под задачу</h3>
+                        <div class="pricing-price">от 250 000 ₽</div>
+                    </div>
                     <p class="pricing-description">
                         Формат для задач, где нужно собрать один рабочий сценарий: ассистента, автоматизацию, обработку документов, аналитический pipeline, связку сервисов или внутренний инструмент. Иногда такой проект помогает проверить идею перед большим внедрением. А иногда — особенно для небольшой компании — этого уже достаточно: решение закрывает конкретную задачу и не требует превращать её в отдельный IT-продукт.
                     </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Подробнее <span class="process-icon">▼</span></h4>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Подробнее <span class="process-icon"></span></h4>
                         <div class="process-body">
                             <h5>Кому подходит</h5>
                             <ul>
@@ -1295,14 +1394,16 @@
                 </div>
 
                 <div class="pricing-card">
-                    <div class="pricing-index">04</div>
-                    <h3 class="pricing-title">Разработка AI-решений</h3>
-                    <div class="pricing-price">индивидуально</div>
+                    <div class="pricing-num">04</div>
+                    <div class="pricing-head">
+                        <h3 class="pricing-title">Разработка AI-решений</h3>
+                        <div class="pricing-price">индивидуально</div>
+                    </div>
                     <p class="pricing-description">
                         Формат для случаев, когда сценарий уже понятен и нужно собрать более устойчивое решение: внутренний AI-инструмент, автоматизацию, ассистента, сервис для анализа данных или операционных процессов. В отличие от быстрой автоматизации или прототипа, здесь больше внимания к стабильности, интерфейсу, данным, ролям пользователей, интеграциям и регулярному использованию.
                     </p>
-                    <div class="pricing-process" onclick="toggleProcess(this)">
-                        <h4>Подробнее <span class="process-icon">▼</span></h4>
+                    <div class="pricing-process">
+                        <h4 onclick="toggleProcess(this.parentElement)">Подробнее <span class="process-icon"></span></h4>
                         <div class="process-body">
                             <h5>Что может входить</h5>
                             <ul>
@@ -1338,13 +1439,13 @@
                 <div class="stack-explorer">
                     <div class="stack-eyebrow">Соберите стек под задачу</div>
                     <div class="stack-cases" id="stackCases">
-                        <button class="stack-case" data-case="Telegram-бот" data-tools="Telegram Bot API|OpenAI API|n8n|NocoDB">Telegram-бот</button>
-                        <button class="stack-case" data-case="CRM-интеграция" data-tools="Bitrix24 API|REST API|Webhooks|n8n|NocoDB">CRM-интеграция</button>
-                        <button class="stack-case" data-case="Агентный сценарий" data-tools="OpenClaw|Hermes Agent|Codex|Skills и инструкции для AI-агентов|cron job">Агентный сценарий</button>
-                        <button class="stack-case" data-case="Обработка документов" data-tools="Gemini API|Structured outputs|Make">Обработка документов</button>
-                        <button class="stack-case" data-case="Аналитический pipeline" data-tools="Gemini API|n8n|Context engineering|Hermes Agent|Skills и инструкции для AI-агентов">Аналитический pipeline</button>
-                        <button class="stack-case" data-case="Личная автоматизация" data-tools="Claude Cowork|MCP|Google APIs">Личная автоматизация</button>
-                        <button class="stack-case" data-case="Разработка под ключ" data-tools="Supabase|GitHub|Timeweb Cloud|Render|REST API">Разработка под ключ</button>
+                        <button class="stack-case" data-case="Telegram-бот" data-tools="Telegram Bot API|OpenAI API|n8n|NocoDB"><span class="case-num">01</span><span class="case-name">Telegram-бот</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="CRM-интеграция" data-tools="Bitrix24 API|REST API|Webhooks|n8n|NocoDB"><span class="case-num">02</span><span class="case-name">CRM-интеграция</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Агентный сценарий" data-tools="OpenClaw|Hermes Agent|Codex|Skills и инструкции для AI-агентов|cron job"><span class="case-num">03</span><span class="case-name">Агентный сценарий</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Обработка документов" data-tools="Gemini API|Structured outputs|Make"><span class="case-num">04</span><span class="case-name">Обработка документов</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Аналитический pipeline" data-tools="Gemini API|n8n|Context engineering|Hermes Agent|Skills и инструкции для AI-агентов"><span class="case-num">05</span><span class="case-name">Аналитический pipeline</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Личная автоматизация" data-tools="Claude Cowork|MCP|Google APIs"><span class="case-num">06</span><span class="case-name">Личная автоматизация</span><span class="case-progress"></span></button>
+                        <button class="stack-case" data-case="Разработка под ключ" data-tools="Supabase|GitHub|Timeweb Cloud|Render|REST API"><span class="case-num">07</span><span class="case-name">Разработка под ключ</span><span class="case-progress"></span></button>
                     </div>
 
                     <div class="stack-cloud" id="stackCloud">
@@ -1540,16 +1641,19 @@
 
             let auto = false, idx = 0, timer = null, started = false;
 
-            function apply(i) {
+            function apply(i, isAuto) {
                 const tools = btns[i].dataset.tools.split('|');
                 const set = new Set(tools);
-                btns.forEach((b, j) => b.classList.toggle('active', j === i));
+                btns.forEach((b, j) => {
+                    b.classList.toggle('active', j === i);
+                    b.classList.toggle('auto', !!isAuto && j === i);
+                });
                 cloud.classList.add('filtering');
                 tags.forEach(t => t.classList.toggle('match', set.has(t.dataset.tool)));
             }
 
             function tick() {
-                apply(idx);
+                apply(idx, true);
                 idx = (idx + 1) % btns.length;
                 timer = setTimeout(tick, 3000);
             }
@@ -1558,6 +1662,7 @@
                 if (!auto) return;
                 auto = false;
                 clearTimeout(timer);
+                btns.forEach(b => b.classList.remove('auto'));
             }
 
             // Manual interaction
@@ -1565,7 +1670,7 @@
                 const btn = e.target.closest('.stack-case');
                 if (!btn) return;
                 stopAuto();
-                apply(btns.indexOf(btn));
+                apply(btns.indexOf(btn), false);
             });
             casesEl.addEventListener('mouseenter', stopAuto);
             cloud.addEventListener('mouseenter', stopAuto);
@@ -1574,7 +1679,7 @@
             function startDemo() {
                 if (started) return;
                 started = true;
-                if (reduce) { apply(0); return; }
+                if (reduce) { apply(0, false); return; }
                 auto = true;
                 idx = 0;
                 tick();
